@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bali 2026 · Nach dem Camp</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FBFCF7;
+    --paper2:#EEF6EA;
+    --tint-turq:#E3F5F4;
+    --tint-sun:#FBF1D6;
+    --ink:#16241C;
+    --ink-soft:#566457;
+    --jungle:#1E7A4D;
+    --turq:#0DA7A7;
+    --sun:#EBA90B;
+    --coral:#FF6A4D;
+    --line:rgba(22,36,28,0.12);
+    --line-strong:rgba(22,36,28,0.22);
+    --card:#FFFFFF;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{background:var(--paper);color:var(--ink);font-family:'Inter',system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit}
+  ::selection{background:var(--sun);color:var(--ink)}
+  .mono{font-family:'Space Mono',monospace}
+  .wrap{max-width:940px;margin:0 auto;padding:0 22px}
+
+  /* HERO */
+  header.hero{position:relative;min-height:78vh;display:flex;align-items:flex-end;color:#fff;overflow:hidden}
+  header.hero .bg{position:absolute;inset:0;background:#0c3b2e}
+  header.hero .bg img{width:100%;height:100%;object-fit:cover;display:block}
+  header.hero .scrim{position:absolute;inset:0;background:linear-gradient(180deg, rgba(13,59,46,0.30) 0%, rgba(13,59,46,0.20) 35%, rgba(13,59,46,0.78) 100%), linear-gradient(110deg, rgba(13,167,167,0.30), transparent 60%)}
+  header.hero .wrap{position:relative;z-index:2;padding-top:60px;padding-bottom:42px;width:100%}
+  .eyebrow{font-family:'Space Mono',monospace;font-size:13px;letter-spacing:0.18em;text-transform:uppercase;color:#FCE9A8}
+  h1{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(62px,18vw,150px);line-height:0.9;letter-spacing:-0.02em;margin:8px 0 4px;color:#fff;text-shadow:0 2px 30px rgba(0,0,0,0.25)}
+  h1 .dot{color:var(--sun)}
+  header.hero .sub{font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:clamp(18px,4.6vw,28px);max-width:30ch;text-shadow:0 1px 12px rgba(0,0,0,0.3)}
+
+  /* RIBBON */
+  .ribbonwrap{background:var(--paper);padding:26px 0 8px}
+  .ribbon{display:flex;flex-wrap:wrap;gap:8px}
+  .stop{flex:1 1 130px;min-width:0;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:13px;position:relative;overflow:hidden}
+  .stop::after{content:"";position:absolute;left:0;top:0;height:100%;width:5px;background:var(--jungle)}
+  .stop.s-turq::after{background:var(--turq)} .stop.s-sun::after{background:var(--sun)} .stop.s-coral::after{background:var(--coral)}
+  .stop .ico{font-size:20px;line-height:1}
+  .stop .nm{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:16px;margin-top:6px}
+  .stop .dt{font-family:'Space Mono',monospace;font-size:11px;color:var(--ink-soft);margin-top:2px}
+
+  /* NAV */
+  nav.toc{position:sticky;top:0;z-index:30;background:rgba(251,252,247,0.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  nav.toc .wrap{display:flex;gap:20px;overflow-x:auto;padding:13px 22px;scrollbar-width:none}
+  nav.toc .wrap::-webkit-scrollbar{display:none}
+  nav.toc a{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.05em;color:var(--ink-soft);text-decoration:none;white-space:nowrap;padding-bottom:2px;border-bottom:2px solid transparent;transition:color .2s,border-color .2s}
+  nav.toc a:hover,nav.toc a:focus-visible{color:var(--jungle);border-color:var(--sun)}
+
+  section{padding:56px 0}
+  section.bg2{background:var(--paper2)}
+  section.bgT{background:var(--tint-turq)}
+  section.bgS{background:var(--tint-sun)}
+  .sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:26px}
+  .sec-head .no{font-family:'Space Mono',monospace;color:var(--coral);font-size:14px;font-weight:700}
+  .sec-head h2{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(30px,7.5vw,50px);line-height:1;letter-spacing:-0.01em;color:var(--ink)}
+  .intro{color:var(--ink-soft);max-width:60ch;margin-bottom:22px}
+
+  /* TIMELINE */
+  .station{position:relative;padding-left:34px;margin-bottom:14px;border-left:3px solid var(--line)}
+  .station:last-child{border-left-color:transparent}
+  .station .node{position:absolute;left:-10px;top:4px;width:17px;height:17px;border-radius:50%;background:var(--paper);border:3px solid var(--jungle)}
+  .station.n-turq .node{border-color:var(--turq)} .station.n-sun .node{border-color:var(--sun)} .station.n-coral .node{border-color:var(--coral)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:0 1px 0 rgba(22,36,28,0.03)}
+  .photo{position:relative;aspect-ratio:16/8;background:linear-gradient(135deg,var(--jungle),var(--turq) 60%,var(--sun))}
+  .photo img{width:100%;height:100%;object-fit:cover;display:block;position:relative;z-index:1}
+  .photo.slot{display:flex;align-items:center;justify-content:center;text-align:center}
+  .photo.slot span{font-family:'Space Mono',monospace;font-size:12px;color:#fff;padding:0 16px;z-index:1;text-shadow:0 1px 6px rgba(0,0,0,0.3)}
+  .cap{position:absolute;left:0;bottom:0;z-index:2;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.05em;color:#fff;background:rgba(22,36,28,0.55);padding:3px 8px;border-radius:0 8px 0 0}
+  .cbody{padding:20px}
+  .toprow{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 12px;margin-bottom:6px}
+  .card h3{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:25px;letter-spacing:-0.01em}
+  .when{font-family:'Space Mono',monospace;font-size:12px;color:var(--ink-soft)}
+  .pill{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.04em;text-transform:uppercase;padding:3px 9px;border-radius:999px;border:1px solid var(--line-strong);color:var(--ink-soft)}
+  .pill.green{color:#fff;background:var(--jungle);border-color:var(--jungle)}
+  .pill.sun{color:var(--ink);background:var(--sun);border-color:var(--sun)}
+  .pill.turq{color:#fff;background:var(--turq);border-color:var(--turq)}
+  .pill.coral{color:#fff;background:var(--coral);border-color:var(--coral)}
+  .lead{margin:8px 0 12px}
+  .block{margin-top:14px}
+  .lbl{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:6px}
+  ul.clean{list-style:none}
+  ul.clean li{position:relative;padding-left:18px;margin-bottom:5px}
+  ul.clean li::before{content:"";position:absolute;left:0;top:11px;width:6px;height:6px;border-radius:50%;background:var(--turq)}
+  .leg{display:flex;align-items:center;gap:10px;margin-top:16px;padding:11px 13px;background:var(--tint-turq);border-radius:12px}
+  .leg .arrow{color:var(--coral);font-weight:700}
+  .leg .time{font-family:'Space Mono',monospace;color:var(--ink);margin-left:auto;font-size:13px;white-space:nowrap}
+  .booklinks{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+  .booklinks a{font-family:'Space Mono',monospace;font-size:13px;text-decoration:none;padding:9px 14px;border-radius:10px;border:1px solid var(--line-strong);color:var(--ink);transition:background .2s,border-color .2s,transform .1s}
+  .booklinks a:hover,.booklinks a:focus-visible{background:var(--tint-sun);border-color:var(--sun);transform:translateY(-1px)}
+  .booklinks a .ar{color:var(--coral)}
+
+  /* TRANSPORT */
+  .tstack{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media (max-width:640px){.tstack{grid-template-columns:1fr}}
+  .tcard{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px}
+  .tcard .role{font-family:'Space Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:var(--coral);margin-bottom:8px}
+  .tcard.alt .role{color:var(--turq)} .tcard.rural .role{color:var(--jungle)}
+  .tcard h4{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:19px;margin-bottom:4px}
+  .tcard .note{font-size:13px;color:var(--ink-soft);margin-top:9px}
+
+  /* CHECKLIST */
+  .chk-group{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:8px 18px 14px;margin-bottom:12px}
+  .chk-group h4{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:18px;margin:12px 0 8px;color:var(--jungle)}
+  .chk{display:flex;align-items:flex-start;gap:11px;padding:7px 0;border-top:1px solid var(--line)}
+  .chk:first-of-type{border-top:none}
+  .chk input{width:20px;height:20px;margin-top:2px;accent-color:var(--jungle);flex:0 0 auto;cursor:pointer}
+  .chk label{cursor:pointer;font-size:15px}
+  .chk .sub{display:block;font-size:12px;color:var(--ink-soft);font-family:'Space Mono',monospace;margin-top:1px}
+
+  /* BUDGET */
+  .budget{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+  .budget td{padding:11px 14px;border-top:1px solid var(--line);font-size:14px;vertical-align:top}
+  .budget tr:first-child td{border-top:none}
+  .budget td:last-child{font-family:'Space Mono',monospace;text-align:right;white-space:nowrap;color:var(--jungle)}
+
+  /* ACCORDION */
+  details.acc{background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:10px;overflow:hidden}
+  details.acc summary{cursor:pointer;list-style:none;padding:15px 18px;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:17px;display:flex;align-items:center;gap:10px}
+  details.acc summary::-webkit-details-marker{display:none}
+  details.acc summary .plus{margin-left:auto;color:var(--coral);font-family:'Space Mono',monospace;transition:transform .2s}
+  details.acc[open] summary .plus{transform:rotate(45deg)}
+  details.acc .abody{padding:0 18px 18px}
+  .warn li::before{background:var(--coral) !important}
+  .check{font-family:'Space Mono',monospace;font-size:11px;color:var(--coral);border:1px solid rgba(255,106,77,0.5);border-radius:8px;padding:2px 8px;margin-left:8px}
+
+  footer{background:var(--ink);color:#C9D4CB;padding:42px 0 72px;font-size:13px}
+  footer .wrap{display:flex;flex-direction:column;gap:10px}
+  footer b{color:#fff;font-weight:600}
+  footer a{color:#8FE3D8}
+
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+  :focus-visible{outline:3px solid var(--turq);outline-offset:2px}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="bg"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Pura_Ulun_Danu_Bratan%2C_2022.jpg/1600px-Pura_Ulun_Danu_Bratan%2C_2022.jpg" alt="Pura Ulun Danu Bratan, Tempel am See bei Munduk, Bali" loading="eager" onerror="this.style.display='none'"></div>
+  <div class="scrim"></div>
+  <div class="wrap">
+    <div class="eyebrow">21.08 – 05.09.2026 · Bali, Indonesien</div>
+    <h1>Bali<span class="dot">.</span></h1>
+    <div class="sub">Nach dem Surfcamp: vom Norden über die Vulkane in den Süden.</div>
+  </div>
+</header>
+
+<div class="ribbonwrap"><div class="wrap">
+  <div class="ribbon" aria-label="Route">
+    <div class="stop s-turq"><div class="ico">🌊</div><div class="nm">Canggu</div><div class="dt">22.–31.08 · Camp</div></div>
+    <div class="stop"><div class="ico">💧</div><div class="nm">Munduk</div><div class="dt">31.08–02.09</div></div>
+    <div class="stop s-sun"><div class="ico">🌋</div><div class="nm">Sidemen</div><div class="dt">02.–04.09</div></div>
+    <div class="stop s-coral"><div class="ico">🪨</div><div class="nm">Bukit</div><div class="dt">04.–05.09</div></div>
+    <div class="stop s-turq"><div class="ico">✈️</div><div class="nm">DPS</div><div class="dt">05.09</div></div>
+  </div>
+</div></div>
+
+<nav class="toc"><div class="wrap">
+  <a href="#route">Route</a>
+  <a href="#transport">Fortbewegung</a>
+  <a href="#checkliste">Checkliste</a>
+  <a href="#budget">Budget</a>
+  <a href="#sicherheit">Sicherheit</a>
+  <a href="#praktisch">Praktisch</a>
+</div></nav>
+
+<main>
+
+<section id="route">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="no">01</span><h2>Die Route</h2></div>
+    <p class="intro reveal">Eine Woche Camp in Canggu, dann fünf Nächte unterwegs. Drei Basen statt Dauerfahrerei: Wasserfälle im Bergland, Reisterrassen am Fuß des Mount Agung, Klippen und weißer Sand zum Schluss. Jede Fahrt ist gleichzeitig die Aussicht.</p>
+
+    <div class="station n-turq reveal">
+      <div class="node"></div>
+      <div class="card">
+        <div class="photo slot"><span>Dein eigenes Surf- oder Camp-Foto hier:<br>images/canggu.jpg</span></div>
+        <div class="cbody">
+          <div class="toprow"><h3>Canggu</h3><span class="when">22.–31.08</span><span class="pill turq">Küste · Camp</span></div>
+          <p class="lead">Ankunft und Surfcamp. Vor dem Camp zwei Nächte in oder bei Canggu, damit der Transfer kurz bleibt.</p>
+          <div class="block"><div class="lbl">Was</div><ul class="clean">
+            <li>22.–24.08: eigene Zeit, akklimatisieren, in Camp-Nähe schlafen.</li>
+            <li>24.–31.08: Lapoint Surfcamp, feste Wochenstruktur, gemeinsame Anreise (24. und 31.08. sind Montage).</li>
+            <li>Transfer Flughafen zu Camp rund 1 Stunde.</li>
+          </ul></div>
+          <div class="block"><div class="lbl">Schlafen (Vor-Camp)</div><div class="booklinks">
+            <a href="https://www.booking.com/searchresults.html?ss=Canggu+Bali" target="_blank" rel="noopener">Booking <span class="ar">↗</span></a>
+            <a href="https://www.airbnb.com/s/Canggu--Bali/homes" target="_blank" rel="noopener">Airbnb <span class="ar">↗</span></a>
+          </div></div>
+          <div class="leg"><span class="arrow">→</span><span>Nach Munduk, über Jatiluwih-Reisterrassen und den Bratan-See</span><span class="time">ca. 2–2,5 h</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="station reveal">
+      <div class="node"></div>
+      <div class="card">
+        <div class="photo"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Munduk_air_terjun_2009.jpg/1024px-Munduk_air_terjun_2009.jpg" alt="Wasserfall bei Munduk, Bali" loading="lazy" onerror="this.style.display='none'"><span class="cap">Munduk Wasserfall · Wikimedia Commons</span></div>
+        <div class="cbody">
+          <div class="toprow"><h3>Munduk</h3><span class="when">31.08–02.09 · 2 Nächte</span><span class="pill green">Bergland</span></div>
+          <p class="lead">Kühles, grünes Hochland. Wasserfälle, Reisterrassen, kaum Massentourismus. Der ruhige Auftakt nach der Camp-Woche.</p>
+          <div class="block"><div class="lbl">Was</div><ul class="clean">
+            <li>Wasserfall-Trail: Munduk, Red Coral, Belong, Hidden Valley. Eintritt je 20.000 bis 30.000 IDR.</li>
+            <li>Reisterrassen und Dorfwege. Auf dem Weg: Tempel am Bratan-See.</li>
+            <li>Früh los zu den Wasserfällen, dann fast für dich allein.</li>
+          </ul></div>
+          <div class="block"><div class="lbl">Schlafen</div><div class="booklinks">
+            <a href="https://www.booking.com/searchresults.html?ss=Munduk+Bali" target="_blank" rel="noopener">Booking <span class="ar">↗</span></a>
+            <a href="https://www.airbnb.com/s/Munduk--Bali/homes" target="_blank" rel="noopener">Airbnb <span class="ar">↗</span></a>
+          </div></div>
+          <div class="leg"><span class="arrow">→</span><span>Nach Sidemen über die Batur-Caldera (Kintamani). Längste Etappe, schönste Strecke, Mittagsstopp mit Caldera-Blick.</span><span class="time">ca. 2,5–3 h</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="station n-sun reveal">
+      <div class="node"></div>
+      <div class="card">
+        <div class="photo"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/RICE_TERRACE_OF_SIDEMEN_EAST_BALI.jpg" alt="Reisterrassen von Sidemen, Ost-Bali" loading="lazy" onerror="this.style.display='none'"><span class="cap">Reisterrassen Sidemen · Wikimedia Commons</span></div>
+        <div class="cbody">
+          <div class="toprow"><h3>Sidemen</h3><span class="when">02.–04.09 · 2 Nächte</span><span class="pill sun">Mount Agung</span></div>
+          <p class="lead">Stilles Dorf am Fuß des Mount Agung. Reisterrassen, Vulkanblick, das authentischste Stück der Reise. Oft "das Ubud von vor 20 Jahren" genannt. Bewusster Kontrast zum Wasser: nach Camp und Wasserfällen hier Berge und Dorfleben.</p>
+          <div class="block"><div class="lbl">Was</div><ul class="clean">
+            <li>Daueraussicht auf den Agung, am schönsten bei Sonnenaufgang.</li>
+            <li>Gembleng Wasserfall, Tirta Gangga Wasserpalast, Pura Lempuyang (Gates of Heaven), Besakih.</li>
+            <li>Gojek und Grab greifen hier kaum. Lokaler Fahrer über die Unterkunft.</li>
+          </ul></div>
+          <div class="block"><div class="lbl">Schlafen · Bambus- und Eco-Villen mit Agung-Blick</div><div class="booklinks">
+            <a href="https://www.booking.com/searchresults.html?ss=Sidemen+Bali" target="_blank" rel="noopener">Booking <span class="ar">↗</span></a>
+            <a href="https://www.airbnb.com/s/Sidemen--Bali/homes" target="_blank" rel="noopener">Airbnb <span class="ar">↗</span></a>
+          </div></div>
+          <div class="leg"><span class="arrow">→</span><span>Auf die Bukit-Halbinsel, Küstenroute über Goa Lawah</span><span class="time">ca. 2,5–3 h</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="station n-coral reveal">
+      <div class="node"></div>
+      <div class="card">
+        <div class="photo"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Pantai_Melasti%2C_Bali.jpg/1024px-Pantai_Melasti%2C_Bali.jpg" alt="Pantai Melasti, weißer Sandstrand mit Kalksteinklippen, Bali" loading="lazy" onerror="this.style.display='none'"><span class="cap">Pantai Melasti · Wikimedia Commons</span></div>
+        <div class="cbody">
+          <div class="toprow"><h3>Bukit · Uluwatu</h3><span class="when">04.–05.09 · 1 Nacht</span><span class="pill coral">Klippen · Strand</span></div>
+          <p class="lead">Kalksteinklippen, weiße Strände, flughafennah. Spektakulärer Abschluss ohne Stress am Abreisetag.</p>
+          <div class="block"><div class="lbl">Was</div><ul class="clean">
+            <li>Melasti Beach: über 1 km weißer Sand, Klippen, türkises Wasser. Eintritt rund 10.000 bis 33.000 IDR inkl. Parken.</li>
+            <li>Uluwatu-Tempel mit Kecak-Tanz am Abend. Achtung: freche Affen, Brille und Handy festhalten.</li>
+            <li>Nur rund 30 Minuten zum Flughafen.</li>
+          </ul></div>
+          <div class="block"><div class="lbl">Schlafen</div><div class="booklinks">
+            <a href="https://www.booking.com/searchresults.html?ss=Uluwatu+Bali" target="_blank" rel="noopener">Booking <span class="ar">↗</span></a>
+            <a href="https://www.airbnb.com/s/Uluwatu--Bali/homes" target="_blank" rel="noopener">Airbnb <span class="ar">↗</span></a>
+          </div></div>
+          <div class="leg"><span class="arrow">→</span><span>05.09: morgens Melasti oder Uluwatu, dann Flughafen DPS</span><span class="time">ca. 30 min</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="transport" class="bgT">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="no">02</span><h2>Fortbewegung</h2></div>
+    <p class="intro reveal">Du fährst selbst nicht, dich fährt jemand. Drei Bausteine: Auto mit Fahrer für die langen Etappen, Gojek und Grab für kurze Wege im Süden, lokaler Fahrer für die ländlichen Basen.</p>
+    <div class="tstack">
+      <div class="tcard reveal">
+        <div class="role">Lange Etappen</div>
+        <h4>Auto mit Fahrer</h4>
+        <p>Auf Bali Standard. Auto plus einheimischer Fahrer als Paket für den ganzen Tag, über Hotel oder lokale Anbieter. Er wartet, du sagst "halt mal hier", spontane Stopps inklusive.</p>
+        <p class="note">Keiner navigiert, alle schauen aus dem Fenster. Im Stadtstau langsamer, auf den Bergstrecken klar entspannter.</p>
+      </div>
+      <div class="tcard alt reveal">
+        <div class="role">Kurze Wege im Süden</div>
+        <h4>Gojek &amp; Grab</h4>
+        <p>Ride-Hailing. GoRide und GrabBike fahren dich auf dem Roller, GoCar und GrabCar im Auto. Du bist Passagier, kein Führerschein nötig. Funktioniert gut in Canggu, auf der Bukit-Halbinsel und in Denpasar.</p>
+        <p class="note">Im Stau ist die Roller-Variante schneller als das Auto, ideal für kurze Hüpfer.</p>
+      </div>
+      <div class="tcard rural reveal">
+        <div class="role">Munduk &amp; Sidemen</div>
+        <h4>Lokaler Fahrer</h4>
+        <p>Hier sind Gojek und Grab unzuverlässig bis nicht verfügbar. Die Unterkunft organisiert einen Fahrer. Bei der Buchung darauf achten, dass sie Transport arrangieren kann.</p>
+      </div>
+      <div class="tcard reveal">
+        <div class="role">Falls jemand selbst fährt</div>
+        <h4>Roller mieten</h4>
+        <p>Internationaler Führerschein mit Motorrad-Eintrag nötig, ein nationaler reicht nicht und bringt ein Bußgeld. Ohne gültige Lizenz greift im Schadensfall die Versicherung oft nicht. Vor dem Losfahren das Fahrzeug komplett filmen.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="checkliste" class="bgS">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="no">03</span><h2>Checkliste bis zum Abflug</h2></div>
+    <p class="intro reveal">Schritt für Schritt abhaken. Diese Liste liegt nur in deinem Browser. Nichts wird geteilt und niemand kann etwas überschreiben, aber Freunde sehen deine Haken auch nicht. Für gemeinsames, synchronisiertes Abhaken im Team wäre ein Online-Dienst nötig.</p>
+
+    <div class="chk-group reveal">
+      <h4>Buchen &amp; organisieren</h4>
+      <div class="chk"><input type="checkbox" id="c1"><label for="c1">Flüge bestätigt (21.08. raus, 05.09. zurück)<span class="sub">Flugnummern und Zeiten notieren</span></label></div>
+      <div class="chk"><input type="checkbox" id="c2"><label for="c2">Vor-Camp-Unterkunft Canggu 22.–24.08. buchen<span class="sub">Sa-Anreise, eigener Transfer ab Flughafen</span></label></div>
+      <div class="chk"><input type="checkbox" id="c3"><label for="c3">Camp 24.–31.08. bestätigt<span class="sub">Lapoint Canggu, Check-in Mo 15:00</span></label></div>
+      <div class="chk"><input type="checkbox" id="c4"><label for="c4">Unterkunft Munduk 31.08.–02.09. buchen</label></div>
+      <div class="chk"><input type="checkbox" id="c5"><label for="c5">Unterkunft Sidemen 02.–04.09. buchen<span class="sub">Agung-Blick, Fahrer-Option</span></label></div>
+      <div class="chk"><input type="checkbox" id="c6"><label for="c6">Unterkunft Bukit/Uluwatu 04.–05.09. buchen<span class="sub">flughafennah</span></label></div>
+      <div class="chk"><input type="checkbox" id="c7"><label for="c7">Fahrer für die 3 langen Etappen anfragen<span class="sub">über Unterkünfte oder Anbieter</span></label></div>
+    </div>
+
+    <div class="chk-group reveal">
+      <h4>Dokumente &amp; Gebühren</h4>
+      <div class="chk"><input type="checkbox" id="c8"><label for="c8">Reisepass mindestens 6 Monate gültig, 2 freie Seiten</label></div>
+      <div class="chk"><input type="checkbox" id="c9"><label for="c9">e-VOA online, mind. 48 h vorher<span class="sub">evisa.imigrasi.go.id · 500.000 IDR</span></label></div>
+      <div class="chk"><input type="checkbox" id="c10"><label for="c10">Bali-Abgabe zahlen<span class="sub">Love Bali · 150.000 IDR · QR speichern</span></label></div>
+      <div class="chk"><input type="checkbox" id="c11"><label for="c11">All Indonesia App, Einreisekarte/QR</label></div>
+      <div class="chk"><input type="checkbox" id="c12"><label for="c12">ELEFAND registrieren<span class="sub">Auswärtiges Amt Krisenvorsorge</span></label></div>
+      <div class="chk"><input type="checkbox" id="c13"><label for="c13">Reiseversicherung prüfen<span class="sub">muss Surfverletzungen abdecken</span></label></div>
+    </div>
+
+    <div class="chk-group reveal">
+      <h4>Gesundheit, Geld &amp; Technik</h4>
+      <div class="chk"><input type="checkbox" id="c14"><label for="c14">Arzt: Impfungen und Reisemedizin</label></div>
+      <div class="chk"><input type="checkbox" id="c15"><label for="c15">Mückenschutz und Sonnencreme SPF 30+ riffschonend</label></div>
+      <div class="chk"><input type="checkbox" id="c16"><label for="c16">eSIM oder SIM-Plan klären<span class="sub">IMEI-Regel für ausländische Handys prüfen</span></label></div>
+      <div class="chk"><input type="checkbox" id="c17"><label for="c17">Bargeld-Strategie und Karte fürs Abheben<span class="sub">Cash ist König, ATMs in Bankfilialen</span></label></div>
+      <div class="chk"><input type="checkbox" id="c18"><label for="c18">Kreditkarte für e-VOA bereit</label></div>
+    </div>
+
+    <div class="chk-group reveal">
+      <h4>Kurz vor Abflug</h4>
+      <div class="chk"><input type="checkbox" id="c19"><label for="c19">Vulkanstatus Agung prüfen<span class="sub">volcano.si.edu oder magma.esdm.go.id</span></label></div>
+      <div class="chk"><input type="checkbox" id="c20"><label for="c20">Packen: leichte lange Kleidung, warme Schicht für kühle Munduk-Abende, feste Schuhe für Wasserfall-Trails, Powerbank</label></div>
+    </div>
+  </div>
+</section>
+
+<section id="budget">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="no">04</span><h2>Budget grob</h2></div>
+    <p class="intro reveal">Richtwerte pro Person, Stand 2026. Keine Festpreise, dienen nur der Orientierung.</p>
+    <table class="budget reveal">
+      <tr><td>e-VOA Visum</td><td>500.000 IDR · ca. 30–35 €</td></tr>
+      <tr><td>Bali-Tourismusabgabe (Love Bali)</td><td>150.000 IDR · ca. 10 €</td></tr>
+      <tr><td>Fahrer pro langer Etappe (durch Gruppe geteilt)</td><td>500.000–800.000 IDR / Tag</td></tr>
+      <tr><td>Unterkunft Mittelklasse (Munduk, Sidemen)</td><td>ca. 300.000–700.000 IDR / Nacht</td></tr>
+      <tr><td>Essen Warung</td><td>ca. 30.000–60.000 IDR / Gericht</td></tr>
+      <tr><td>Wasserfall- und Strand-Eintritte</td><td>ca. 10.000–30.000 IDR</td></tr>
+      <tr><td>Gojek / Grab kurze Strecke</td><td>ca. 15.000–50.000 IDR</td></tr>
+    </table>
+  </div>
+</section>
+
+<section id="sicherheit" class="bg2">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="no">05</span><h2>Sicherheit &amp; Recht</h2></div>
+
+    <details class="acc reveal"><summary>Neues Strafrecht seit Januar 2026 <span class="plus">+</span></summary>
+      <div class="abody"><ul class="clean">
+        <li>Außerehelicher Geschlechtsverkehr und unverheiratetes Zusammenwohnen sind strafbar. Anzeigeberechtigt nur Ehepartner, Eltern, Kinder, nicht Hotelpersonal.</li>
+        <li>Praktisch wichtiger: abfällige Online-Äußerungen über die indonesische Politik oder Religion können zur Abschiebung führen. Ein Schweizer wurde Ende März 2026 nach einem Instagram-Post festgenommen.</li>
+        <li>Politik und religiöse Themen besser für dich behalten, online wie offline.</li>
+      </ul></div>
+    </details>
+
+    <details class="acc reveal"><summary>Vulkane <span class="plus">+</span></summary>
+      <div class="abody"><ul class="clean">
+        <li>Agung und Batur sind aktiv. Agung steht laut Behörde PVMBG auf Stufe 1 (Normal, von 4). Ende 2025 erhöhte Aktivität, Stufe blieb Normal.</li>
+        <li>Der Blick aus Sidemen ist unproblematisch. Besteigung nur mit registriertem Guide, nicht bei Regen oder Wolken.</li>
+        <li>Status kurz vor Abflug prüfen.</li>
+      </ul></div>
+    </details>
+
+    <details class="acc reveal"><summary>Drogen &amp; Alkohol <span class="plus">+</span></summary>
+      <div class="abody"><ul class="clean warn">
+        <li>Sehr harte Drogengesetze. Finger weg von allem, auch "Mushroom Shakes".</li>
+        <li>Vorsicht bei billigem lokalem Schnaps und frei ausgeschenkten Cocktails, Methanol-Vergiftungen kommen vor. Auf versiegelte Markenflaschen achten.</li>
+      </ul></div>
+    </details>
+
+    <details class="acc reveal"><summary>Häufige Scams <span class="plus">+</span></summary>
+      <div class="abody"><ul class="clean warn">
+        <li>Geld nur in offiziellen, klimatisierten Wechselstuben tauschen, Noten selbst nachzählen.</li>
+        <li>Bargeld nur an Automaten in Bankfilialen, nicht freistehend (Skimming).</li>
+        <li>Roller vor dem Losfahren komplett filmen. Keinen Pass als Pfand.</li>
+        <li>Taxi: Grab, Gojek oder Bluebird, Festpreis vorher.</li>
+        <li>Tourist-Police Bali, Englisch: +62 361 224111.</li>
+      </ul></div>
+    </details>
+  </div>
+</section>
+
+<section id="praktisch">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="no">06</span><h2>Praktisch &amp; Einreise</h2></div>
+
+    <details class="acc reveal"><summary>Lapoint Camp Canggu <span class="plus">+</span></summary>
+      <div class="abody"><ul class="clean">
+        <li>Adresse: Jalan Tanah Barak 49, Canggu, Badung, Bali 80361. Kontakt: canggu@lapointcamps.com, +62 812 46 757 225.</li>
+        <li>Check-in montags ab 15:00, Check-out montags 10:00. Vorher und nachher am Camp abhängen ist ok. 24. und 31.08. sind beide Montage.</li>
+        <li>Flughafen-Transfer nur montags, nicht im Preis, vorab dazubuchen. Da du Samstag den 22.08. ankommst, organisierst du Sa und So selbst.</li>
+        <li>Mitbringen: Pass, Reiseversicherung mit Surf-Deckung, Badesachen, wiederverwendbare Flasche, Sonnencreme ab SPF 30, Mückenschutz, Strandtuch.</li>
+        <li>Cash ist König. Extras (Tagestouren, Boardverleih, Snacks) bei Abreise bar an den Camp-Manager. ATMs in Canggu.</li>
+        <li>Gesundheit: Bali gilt als malariafrei, andere Inseln nicht. Dengue existiert, täglich Mückenschutz.</li>
+      </ul></div>
+    </details>
+
+    <details class="acc reveal"><summary>Visum &amp; Gebühren <span class="check">vor Abflug prüfen</span><span class="plus">+</span></summary>
+      <div class="abody"><ul class="clean">
+        <li>e-VOA für Deutsche: 500.000 IDR (rund 30 bis 35 EUR), 30 Tage, einmal um 30 Tage verlängerbar. Für gut zwei Wochen keine Verlängerung nötig.</li>
+        <li>Vorab online auf evisa.imigrasi.go.id, mind. 48 h vor Abflug. Pass 6 Monate gültig, 2 freie Seiten, Rückflugticket.</li>
+        <li>Bali-Tourismusabgabe: 150.000 IDR pro Person, separat, über "Love Bali". QR-Code aufheben.</li>
+        <li><b>Achtung:</b> Das Lapoint-PDF nennt veraltete Zahlen (kostenloses Visum, 250.000 IDR Ein-/Ausreisesteuer). Es gilt das Obige.</li>
+      </ul></div>
+    </details>
+
+    <details class="acc reveal"><summary>Vor Ort <span class="plus">+</span></summary>
+      <div class="abody"><ul class="clean">
+        <li>Strom: 230 V, Steckdosen Typ C und F, identisch zu Deutschland. Kein Adapter nötig.</li>
+        <li>SIM: lokale SIM sinnvoll, aber IMEI-Registrierung für ausländische Handys. Alternativ eSIM vorab.</li>
+        <li>Wasser: Leitungswasser nicht trinken, eigene Flasche nachfüllen.</li>
+        <li>Klima: August und September sind Trockenzeit, klare Vulkansicht. Munduk und Sidemen abends kühler, leichte Schicht mitnehmen.</li>
+        <li>Notrufe: 112 allgemein, 110 Polizei, 118/119 Rettung.</li>
+      </ul></div>
+    </details>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div><b>Bilder:</b> Wikimedia Commons (Ulun Danu Bratan, Munduk Wasserfall, Sidemen Reisterrasse, Pantai Melasti), Lizenzen CC BY-SA. Canggu-Slot für dein eigenes Foto.</div>
+    <div><b>Stand:</b> Juni 2026. Vor Abflug neu prüfen: Visum/e-VOA, Tourismusabgabe, All-Indonesia, IMEI-Regel, Vulkanstatus.</div>
+    <div><b>Quellen:</b> Auswärtiges Amt, ADAC, BMEIA, US State Dept, GOV.UK, Smithsonian GVP / PVMBG, Lapoint Camps.</div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var els = document.querySelectorAll('.reveal');
+    if(!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+      els.forEach(function(e){e.classList.add('in')}); return;
+    }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);} });
+    },{threshold:0.12});
+    els.forEach(function(e){io.observe(e);});
+  })();
+</script>
+</body>
+</html>
