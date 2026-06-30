@@ -1,120 +1,101 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bali 2026 · Nach dem Camp / After the camp</title>
+<title>Bali 2026 · Two routes</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --paper:#FBFCF7;--paper2:#EEF6EA;--tint-turq:#E3F5F4;--tint-sun:#FBF1D6;
-    --ink:#16241C;--ink-soft:#566457;--jungle:#1E7A4D;--turq:#0DA7A7;--sun:#EBA90B;--coral:#FF6A4D;
-    --line:rgba(22,36,28,0.12);--line-strong:rgba(22,36,28,0.22);--card:#FFFFFF;
-  }
+  :root{--paper:#FBFCF7;--paper2:#EEF6EA;--tint-turq:#E3F5F4;--tint-sun:#FBF1D6;--ink:#16241C;--ink-soft:#566457;--jungle:#1E7A4D;--turq:#0DA7A7;--sun:#EBA90B;--coral:#FF6A4D;--line:rgba(22,36,28,0.12);--line-strong:rgba(22,36,28,0.22);--card:#FFFFFF}
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth;overflow-y:scroll;overflow-x:hidden}
   @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
   body{background:var(--paper);color:var(--ink);font-family:'Inter',system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;overflow-wrap:break-word}
-  a{color:inherit}
-  ::selection{background:var(--sun);color:var(--ink)}
-  .wrap{max-width:940px;margin:0 auto;padding:0 22px}
+  a{color:inherit} ::selection{background:var(--sun);color:var(--ink)}
+  .wrap{max-width:980px;margin:0 auto;padding:0 22px}
 
-  /* LANGUAGE BAR */
   .langbar{position:sticky;top:0;z-index:60;background:var(--ink);display:flex}
-  .langbar button{flex:1;display:flex;align-items:center;justify-content:center;gap:9px;padding:13px 10px;background:transparent;border:none;color:#AEBDB1;font-family:'Space Mono',monospace;font-size:14px;font-weight:700;letter-spacing:0.06em;cursor:pointer;border-bottom:4px solid transparent;transition:color .15s,background .15s,border-color .15s}
-  .langbar button .flag{font-size:22px;line-height:1}
-  .langbar button:hover{color:#fff}
+  .langbar button{flex:1;display:flex;align-items:center;justify-content:center;gap:9px;padding:13px 10px;background:transparent;border:none;color:#AEBDB1;font-family:'Space Mono',monospace;font-size:14px;font-weight:700;letter-spacing:0.06em;cursor:pointer;border-bottom:4px solid transparent}
+  .langbar button .flag{font-size:22px} .langbar button:hover{color:#fff}
   .langbar button.active{color:#fff;background:rgba(255,255,255,0.07);border-bottom-color:var(--sun)}
-
   .lang-block[hidden]{display:none}
 
-  /* HERO */
-  header.hero{position:relative;min-height:74vh;display:flex;align-items:flex-end;color:#fff;overflow:hidden}
+  header.hero{position:relative;min-height:52vh;display:flex;align-items:flex-end;color:#fff;overflow:hidden}
   header.hero .bg{position:absolute;inset:0;background:linear-gradient(135deg,var(--jungle),var(--turq) 60%,var(--sun))}
   header.hero .bg img{width:100%;height:100%;object-fit:cover;display:block}
-  header.hero .scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,59,46,0.30) 0%,rgba(13,59,46,0.20) 35%,rgba(13,59,46,0.78) 100%),linear-gradient(110deg,rgba(13,167,167,0.30),transparent 60%)}
-  header.hero .wrap{position:relative;z-index:2;padding-top:46px;padding-bottom:42px;width:100%}
+  header.hero .scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,59,46,0.30),rgba(13,59,46,0.78))}
+  header.hero .wrap{position:relative;z-index:2;padding-top:38px;padding-bottom:34px;width:100%}
   .eyebrow{font-family:'Space Mono',monospace;font-size:13px;letter-spacing:0.18em;text-transform:uppercase;color:#FCE9A8}
-  h1{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(62px,18vw,150px);line-height:0.9;letter-spacing:-0.02em;margin:8px 0 4px;color:#fff;text-shadow:0 2px 30px rgba(0,0,0,0.25)}
+  h1{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(50px,14vw,112px);line-height:0.9;letter-spacing:-0.02em;margin:8px 0 4px;color:#fff;text-shadow:0 2px 30px rgba(0,0,0,0.25)}
   h1 .dot{color:var(--sun)}
-  header.hero .sub{font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:clamp(18px,4.6vw,28px);max-width:30ch;text-shadow:0 1px 12px rgba(0,0,0,0.3)}
+  header.hero .sub{font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:clamp(17px,4.4vw,26px);max-width:32ch;text-shadow:0 1px 12px rgba(0,0,0,0.3)}
 
-  .ribbonwrap{background:var(--paper);padding:26px 0 8px}
-  .ribbon{display:flex;flex-wrap:wrap;gap:8px}
-  .stop{flex:1 1 130px;min-width:0;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:13px;position:relative;overflow:hidden}
-  .stop::after{content:"";position:absolute;left:0;top:0;height:100%;width:5px;background:var(--jungle)}
-  .stop.s-turq::after{background:var(--turq)} .stop.s-sun::after{background:var(--sun)} .stop.s-coral::after{background:var(--coral)}
-  .stop .ico{font-size:20px;line-height:1}
-  .stop .nm{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:16px;margin-top:6px}
-  .stop .dt{font-family:'Space Mono',monospace;font-size:11px;color:var(--ink-soft);margin-top:2px}
-
-  nav.toc .wrap{display:flex;gap:20px;overflow-x:auto;padding:14px 22px;scrollbar-width:none;border-bottom:1px solid var(--line)}
-  nav.toc .wrap::-webkit-scrollbar{display:none}
-  nav.toc a{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.05em;color:var(--ink-soft);text-decoration:none;white-space:nowrap;padding-bottom:2px;border-bottom:2px solid transparent}
-  nav.toc a:hover,nav.toc a:focus-visible{color:var(--jungle);border-color:var(--sun)}
-
-  section{padding:54px 0}
+  section{padding:48px 0}
   section.bg2{background:var(--paper2)} section.bgT{background:var(--tint-turq)} section.bgS{background:var(--tint-sun)}
-  .sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:26px}
+  .sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:8px}
   .sec-head .no{font-family:'Space Mono',monospace;color:var(--coral);font-size:14px;font-weight:700}
-  .sec-head h2{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(30px,7.5vw,50px);line-height:1;letter-spacing:-0.01em}
-  .intro{color:var(--ink-soft);max-width:60ch;margin-bottom:22px}
+  .sec-head h2{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(28px,7vw,46px);line-height:1;letter-spacing:-0.01em}
+  .intro{color:var(--ink-soft);max-width:62ch;margin:6px 0 22px}
 
-  .station{position:relative;padding-left:34px;margin-bottom:14px;border-left:3px solid var(--line)}
-  .station:last-child{border-left-color:transparent}
-  .station .node{position:absolute;left:-10px;top:4px;width:17px;height:17px;border-radius:50%;background:var(--paper);border:3px solid var(--jungle)}
-  .station.n-turq .node{border-color:var(--turq)} .station.n-sun .node{border-color:var(--sun)} .station.n-coral .node{border-color:var(--coral)}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden}
+  .cmp{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media(max-width:680px){.cmp{grid-template-columns:1fr}}
+  .col{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
+  .col .photo{aspect-ratio:16/9;position:relative;background:linear-gradient(135deg,var(--jungle),var(--turq) 60%,var(--sun))}
+  .col .photo img{width:100%;height:100%;object-fit:cover;display:block}
+  .ribbon-tag{position:absolute;top:10px;left:10px;font-family:'Space Mono',monospace;font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px;color:#fff}
+  .ribbon-tag.r1{background:var(--jungle)} .ribbon-tag.r2{background:var(--coral)}
+  .banner{background:var(--coral);color:#fff;font-size:13px;padding:10px 14px;font-weight:600;line-height:1.45}
+  .note-box{background:var(--tint-sun);border:1px solid rgba(235,169,11,0.45);border-radius:14px;padding:14px 16px;margin:0 0 22px;font-size:14px}
+  .note-box b{font-family:'Space Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--coral);display:block;margin-bottom:4px}
+  .colbody{padding:18px;flex:1}
+  .colbody h3{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:22px}
+  .colbody .tag{font-family:'Space Mono',monospace;font-size:12px;color:var(--ink-soft);margin:3px 0 8px}
+  .colbody .route-line{font-size:13px;color:var(--ink-soft);margin-bottom:6px}
+  .pc-h{font-family:'Space Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.1em;margin:14px 0 6px}
+  .pc-h.pro{color:var(--jungle)} .pc-h.con{color:var(--coral)}
+  ul.pc{list-style:none} ul.pc li{position:relative;padding-left:20px;margin-bottom:5px;font-size:14px}
+  ul.pc.pro li::before{content:"+";position:absolute;left:2px;color:var(--jungle);font-weight:700}
+  ul.pc.con li::before{content:"\2013";position:absolute;left:2px;color:var(--coral);font-weight:700}
+  .best{margin-top:12px;font-size:13px;background:var(--paper2);border-radius:10px;padding:9px 12px}
+  .best b{font-family:'Space Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--jungle)}
+  .col.r2col .best{background:var(--tint-sun)} .col.r2col .best b{color:var(--coral)}
+
+  .routebar{display:flex;gap:10px;margin:0 0 20px;flex-wrap:wrap}
+  .rbtn{flex:1 1 200px;padding:14px 16px;border-radius:14px;border:2px solid var(--line-strong);background:var(--card);font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:15px;cursor:pointer;color:var(--ink-soft);text-align:left;line-height:1.2}
+  .rbtn small{display:block;font-family:'Space Mono',monospace;font-size:11px;font-weight:400;margin-top:3px;opacity:0.8}
+  .rbtn.r1.active{border-color:var(--jungle);background:var(--jungle);color:#fff}
+  .rbtn.r2.active{border-color:var(--coral);background:var(--coral);color:#fff}
+  .routebox{display:none} .routebox.show{display:block}
+
+  .maplink{display:inline-flex;align-items:center;gap:8px;background:var(--turq);color:#fff;font-family:'Space Mono',monospace;font-weight:700;font-size:13px;text-decoration:none;padding:11px 16px;border-radius:12px;margin-bottom:18px}
+  .maplink:hover{filter:brightness(1.05)}
+
+  .via{display:flex;gap:12px;align-items:flex-start;padding:11px 14px;margin-bottom:11px;background:var(--card);border:1px solid var(--line);border-radius:13px}
+  .via .t{font-family:'Space Mono',monospace;font-size:11px;font-weight:700;color:var(--coral);white-space:nowrap;flex:0 0 auto;padding-top:2px}
+  .via .v h4{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:15px;line-height:1.25}
+  .via .v p{font-size:13px;color:var(--ink-soft);margin-top:1px}
+  .hop{font-family:'Space Mono',monospace;font-size:11px;font-weight:700;color:var(--coral);margin:0 0 7px 2px}
+
+  .card{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;margin-bottom:11px}
   .photo{position:relative;aspect-ratio:16/8;background:linear-gradient(135deg,var(--jungle),var(--turq) 60%,var(--sun))}
-  .photo img{width:100%;height:100%;object-fit:cover;display:block;position:relative;z-index:1}
-  .photo.slot{display:flex;align-items:center;justify-content:center;text-align:center}
-  .photo.slot span{font-family:'Space Mono',monospace;font-size:12px;color:#fff;padding:0 16px;z-index:1;text-shadow:0 1px 6px rgba(0,0,0,0.35)}
-  .cap{position:absolute;left:0;bottom:0;z-index:2;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.05em;color:#fff;background:rgba(22,36,28,0.55);padding:3px 8px;border-radius:0 8px 0 0}
-  .cbody{padding:20px}
-  .toprow{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 12px;margin-bottom:6px}
-  .card h3{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:25px;letter-spacing:-0.01em}
+  .photo img{width:100%;height:100%;object-fit:cover;display:block}
+  .cap{position:absolute;left:0;bottom:0;font-family:'Space Mono',monospace;font-size:10px;color:#fff;background:rgba(22,36,28,0.55);padding:3px 8px;border-radius:0 8px 0 0}
+  .cbody{padding:18px}
+  .toprow{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 12px;margin-bottom:4px}
+  .card h3{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:23px;letter-spacing:-0.01em}
   .when{font-family:'Space Mono',monospace;font-size:12px;color:var(--ink-soft)}
-  .pill{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.04em;text-transform:uppercase;padding:3px 9px;border-radius:999px;border:1px solid var(--line-strong);color:var(--ink-soft)}
-  .pill.green{color:#fff;background:var(--jungle);border-color:var(--jungle)}
-  .pill.sun{color:var(--ink);background:var(--sun);border-color:var(--sun)}
-  .pill.turq{color:#fff;background:var(--turq);border-color:var(--turq)}
-  .pill.coral{color:#fff;background:var(--coral);border-color:var(--coral)}
-  .lead{margin:8px 0 12px}
-  .block{margin-top:14px}
-  .lbl{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:6px}
-  ul.clean{list-style:none}
-  ul.clean li{position:relative;padding-left:18px;margin-bottom:5px}
+  .pill{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.04em;text-transform:uppercase;padding:3px 9px;border-radius:999px;color:#fff}
+  .pill.green{background:var(--jungle)} .pill.sun{background:var(--sun);color:var(--ink)} .pill.turq{background:var(--turq)} .pill.coral{background:var(--coral)}
+  .lead{margin:6px 0 10px}
+  ul.clean{list-style:none} ul.clean li{position:relative;padding-left:18px;margin-bottom:5px;font-size:14px}
   ul.clean li::before{content:"";position:absolute;left:0;top:11px;width:6px;height:6px;border-radius:50%;background:var(--turq)}
-  .leg{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:16px;padding:11px 13px;background:var(--tint-turq);border-radius:12px}
-  .leg .arrow{color:var(--coral);font-weight:700}
-  .leg .time{font-family:'Space Mono',monospace;color:var(--ink);margin-left:auto;font-size:13px;white-space:nowrap}
-  .booklinks{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
-  .booklinks a{font-family:'Space Mono',monospace;font-size:13px;text-decoration:none;padding:9px 14px;border-radius:10px;border:1px solid var(--line-strong);color:var(--ink)}
-  .booklinks a:hover,.booklinks a:focus-visible{background:var(--tint-sun);border-color:var(--sun)}
-  .booklinks a .ar{color:var(--coral)}
-
-  .tstack{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-  @media (max-width:640px){.tstack{grid-template-columns:1fr}}
-  .tcard{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px}
-  .tcard .role{font-family:'Space Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:var(--coral);margin-bottom:8px}
-  .tcard.alt .role{color:var(--turq)} .tcard.rural .role{color:var(--jungle)}
-  .tcard h4{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:19px;margin-bottom:4px}
-  .tcard .note{font-size:13px;color:var(--ink-soft);margin-top:9px}
-
-  .chk-group{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:8px 18px 14px;margin-bottom:12px}
-  .chk-group h4{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:18px;margin:12px 0 8px;color:var(--jungle)}
-  .chk{display:flex;align-items:flex-start;gap:11px;padding:7px 0;border-top:1px solid var(--line)}
-  .chk:first-of-type{border-top:none}
-  .chk input{width:20px;height:20px;margin-top:2px;accent-color:var(--jungle);flex:0 0 auto;cursor:pointer}
-  .chk label{cursor:pointer;font-size:15px}
-  .chk .sub{display:block;font-size:12px;color:var(--ink-soft);font-family:'Space Mono',monospace;margin-top:1px}
-
-  .budget{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden}
-  .budget td{padding:11px 14px;border-top:1px solid var(--line);font-size:14px}
-  .budget tr:first-child td{border-top:none}
-  .budget td:last-child{font-family:'Space Mono',monospace;text-align:right;white-space:nowrap;color:var(--jungle)}
+  .tip{font-size:13px;background:var(--tint-sun);border-radius:9px;padding:7px 11px;margin-top:8px}
+  .tip b{font-family:'Space Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:0.06em;color:var(--coral)}
+  .booklinks{display:flex;flex-wrap:wrap;gap:9px;margin-top:12px}
+  .booklinks a{font-family:'Space Mono',monospace;font-size:13px;text-decoration:none;padding:8px 13px;border-radius:10px;border:1px solid var(--line-strong);color:var(--ink)}
+  .booklinks a:hover{background:var(--tint-sun);border-color:var(--sun)} .booklinks a .ar{color:var(--coral)}
 
   details.acc{background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:10px;overflow:hidden}
   details.acc summary{cursor:pointer;list-style:none;padding:15px 18px;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:17px;display:flex;align-items:center;gap:10px}
@@ -123,463 +104,353 @@
   details.acc[open] summary .plus{transform:rotate(45deg)}
   details.acc .abody{padding:0 18px 18px}
   .warn li::before{background:var(--coral) !important}
-  .check{font-family:'Space Mono',monospace;font-size:11px;color:var(--coral);border:1px solid rgba(255,106,77,0.5);border-radius:8px;padding:2px 8px;margin-left:8px}
 
-  footer{background:var(--ink);color:#C9D4CB;padding:42px 0 72px;font-size:13px}
-  footer .wrap{display:flex;flex-direction:column;gap:10px}
-  footer b{color:#fff;font-weight:600}
+  footer{background:var(--ink);color:#C9D4CB;padding:40px 0 70px;font-size:13px}
+  footer .wrap{display:flex;flex-direction:column;gap:10px} footer b{color:#fff}
   :focus-visible{outline:3px solid var(--turq);outline-offset:2px}
 </style>
 </head>
 <body>
 
-<div class="langbar" role="tablist" aria-label="Sprache / Language">
-  <button id="btn-de" class="active" onclick="setLang('de')"><span class="flag">🇩🇪</span> Deutsch</button>
-  <button id="btn-en" onclick="setLang('en')"><span class="flag">🇬🇧</span> English</button>
+<div class="langbar">
+  <button id="btn-en" class="active" onclick="setLang('en')"><span class="flag">🇬🇧</span> English</button>
+  <button id="btn-de" onclick="setLang('de')"><span class="flag">🇩🇪</span> Deutsch</button>
 </div>
 
-<!-- ================= DEUTSCH ================= -->
-<div id="de" class="lang-block">
+<!-- ===== ENGLISH ===== -->
+<div id="en" class="lang-block">
 <header class="hero">
-  <div class="bg"><img src="https://upload.wikimedia.org/wikipedia/commons/7/77/Pura_Ulun_Danu_Bratan,_2022.jpg" alt="Pura Ulun Danu Bratan, Tempel am See bei Munduk, Bali" onerror="this.style.display='none'"></div>
+  <div class="bg"><img src="https://upload.wikimedia.org/wikipedia/commons/7/77/Pura_Ulun_Danu_Bratan,_2022.jpg" alt="Bali lake temple" onerror="this.style.display='none'"></div>
   <div class="scrim"></div>
-  <div class="wrap">
-    <div class="eyebrow">21.08 – 05.09.2026 · Bali, Indonesien</div>
-    <h1>Bali<span class="dot">.</span></h1>
-    <div class="sub">Nach dem Surfcamp: vom Norden über die Vulkane in den Süden.</div>
-  </div>
+  <div class="wrap"><div class="eyebrow">21 Aug – 5 Sep 2026 · Bali</div><h1>Bali<span class="dot">.</span></h1><div class="sub">After the camp: two ways to spend the five nights. Pick one as a group.</div></div>
 </header>
 
-<div class="ribbonwrap"><div class="wrap"><div class="ribbon">
-  <div class="stop s-turq"><div class="ico">🌊</div><div class="nm">Canggu</div><div class="dt">22.–31.08 · Camp</div></div>
-  <div class="stop"><div class="ico">💧</div><div class="nm">Munduk</div><div class="dt">31.08–02.09</div></div>
-  <div class="stop s-sun"><div class="ico">🌋</div><div class="nm">Sidemen</div><div class="dt">02.–04.09</div></div>
-  <div class="stop s-coral"><div class="ico">🪨</div><div class="nm">Bukit</div><div class="dt">04.–05.09</div></div>
-  <div class="stop s-turq"><div class="ico">✈️</div><div class="nm">DPS</div><div class="dt">05.09</div></div>
-</div></div></div>
-
-<nav class="toc"><div class="wrap">
-  <a href="#de-route">Route</a><a href="#de-transport">Fortbewegung</a><a href="#de-check">Checkliste</a><a href="#de-budget">Budget</a><a href="#de-sicher">Sicherheit</a><a href="#de-prakt">Praktisch</a>
-</div></nav>
-
-<main>
-<section id="de-route">
-  <div class="wrap">
-    <div class="sec-head"><span class="no">01</span><h2>Die Route</h2></div>
-    <p class="intro">Eine Woche Camp in Canggu, dann fünf Nächte unterwegs. Drei Basen statt Dauerfahrerei: Wasserfälle im Bergland, Reisterrassen am Fuß des Mount Agung, Klippen und weißer Sand zum Schluss. Jede Fahrt ist gleichzeitig die Aussicht.</p>
-
-    <div class="station n-turq"><div class="node"></div><div class="card">
-      <div class="photo slot"><span>Dein eigenes Surf- oder Camp-Foto hier:<br>images/canggu.jpg</span></div>
-      <div class="cbody">
-        <div class="toprow"><h3>Canggu</h3><span class="when">22.–31.08</span><span class="pill turq">Küste · Camp</span></div>
-        <p class="lead">Ankunft und Surfcamp. Vor dem Camp zwei Nächte in oder bei Canggu, damit der Transfer kurz bleibt.</p>
-        <div class="block"><div class="lbl">Was</div><ul class="clean">
-          <li>22.–24.08: eigene Zeit, akklimatisieren, in Camp-Nähe schlafen.</li>
-          <li>24.–31.08: Lapoint Surfcamp, feste Wochenstruktur (24. und 31.08. sind Montage).</li>
-          <li>Transfer Flughafen zu Camp rund 1 Stunde.</li>
-        </ul></div>
-        <div class="block"><div class="lbl">Schlafen (Vor-Camp)</div><div class="booklinks">
-          <a href="https://www.booking.com/searchresults.html?ss=Canggu+Bali" target="_blank" rel="noopener">Booking <span class="ar">↗</span></a>
-          <a href="https://www.airbnb.com/s/Canggu--Bali/homes" target="_blank" rel="noopener">Airbnb <span class="ar">↗</span></a>
-        </div></div>
-        <div class="leg"><span class="arrow">→</span><span>Nach Munduk, über Jatiluwih-Reisterrassen und den Bratan-See</span><span class="time">ca. 2–2,5 h</span></div>
+<section><div class="wrap">
+  <div class="sec-head"><span class="no">01</span><h2>Compare the two routes</h2></div>
+  <p class="intro">One week of surf camp in Canggu is fixed. The choice is the second week. These two routes pull in different directions, so decide together.</p>
+  <div class="cmp">
+    <div class="col r1col">
+      <div class="photo"><span class="ribbon-tag r1">Route 1</span><img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/RICE_TERRACE_OF_SIDEMEN_EAST_BALI.jpg" alt="Sidemen rice terraces" onerror="this.style.display='none'"></div>
+      <div class="colbody">
+        <h3>The quiet Bali</h3>
+        <div class="tag">Munduk · Sidemen · Bukit</div>
+        <div class="route-line">Off the beaten path. Nature, volcano, far fewer crowds.</div>
+        <div class="pc-h pro">Pros</div>
+        <ul class="pc pro"><li>Far fewer tourists, especially Munduk and Sidemen</li><li>Waterfalls, rice terraces, Mount Agung views</li><li>The drives are scenic, the sights are on the way</li><li>Sidemen is "Ubud before the tourists arrived"</li></ul>
+        <div class="pc-h con">Cons</div>
+        <ul class="pc con"><li>Covers more of the island overall</li><li>Little nightlife or social scene</li><li>No manta rays, fewer famous photo spots</li></ul>
+        <div class="best"><b>Best for</b><br>People who want the authentic, calmer side and like a scenic road trip.</div>
       </div>
-    </div></div>
-
-    <div class="station"><div class="node"></div><div class="card">
-      <div class="photo"><img src="https://upload.wikimedia.org/wikipedia/commons/6/67/Munduk_air_terjun_2009.jpg" alt="Wasserfall bei Munduk" onerror="this.style.display='none'"><span class="cap">Munduk Wasserfall · Wikimedia Commons</span></div>
-      <div class="cbody">
-        <div class="toprow"><h3>Munduk</h3><span class="when">31.08–02.09 · 2 Nächte</span><span class="pill green">Bergland</span></div>
-        <p class="lead">Kühles, grünes Hochland. Wasserfälle, Reisterrassen, kaum Massentourismus. Ruhiger Auftakt nach der Camp-Woche.</p>
-        <div class="block"><div class="lbl">Was</div><ul class="clean">
-          <li>Wasserfall-Trail: Munduk, Red Coral, Belong, Hidden Valley. Eintritt je 20.000–30.000 IDR.</li>
-          <li>Reisterrassen, Dorfwege, Tempel am Bratan-See.</li>
-          <li>Früh los, dann fast für dich allein.</li>
-        </ul></div>
-        <div class="block"><div class="lbl">Schlafen</div><div class="booklinks">
-          <a href="https://www.booking.com/searchresults.html?ss=Munduk+Bali" target="_blank" rel="noopener">Booking <span class="ar">↗</span></a>
-          <a href="https://www.airbnb.com/s/Munduk--Bali/homes" target="_blank" rel="noopener">Airbnb <span class="ar">↗</span></a>
-        </div></div>
-        <div class="leg"><span class="arrow">→</span><span>Nach Sidemen über die Batur-Caldera (Kintamani). Längste, schönste Etappe, Mittagsstopp mit Caldera-Blick.</span><span class="time">ca. 2,5–3 h</span></div>
+    </div>
+    <div class="col r2col">
+      <div class="photo"><span class="ribbon-tag r2">Route 2</span><img src="https://upload.wikimedia.org/wikipedia/commons/b/bf/Kelingking_Beach,_Nusa_Penida.jpg" alt="Kelingking Beach, Nusa Penida" onerror="this.style.display='none'"></div>
+      <div class="banner">Heads up: this is the well-known tourist route. In August it is peak season and the famous spots get crowded by late morning. You see the iconic places everyone knows, not the quiet, off-the-beaten-path Bali.</div>
+      <div class="colbody">
+        <h3>The classic highlights</h3>
+        <div class="tag">Ubud · Nusa Penida · Uluwatu</div>
+        <div class="route-line">The icons. Ubud, manta rays, Uluwatu.</div>
+        <div class="pc-h pro">Pros</div>
+        <ul class="pc pro"><li>The iconic sights: Tegallalang, Uluwatu, Kelingking</li><li>Manta ray snorkelling at Nusa Penida (~90–95% success)</li><li>Ayung jungle rafting</li><li>Livelier: beach clubs, nightlife, scene</li><li>Compact, less total driving, Grab works in the south</li></ul>
+        <div class="pc-h con">Cons</div>
+        <ul class="pc con"><li>Crowded by late morning, especially Tegallalang and Uluwatu</li><li>Can feel commercial (swings, souvenir rows)</li><li>Manta = a long day with an early crossing, never 100%</li><li>Less "real Bali" feel, pricier in busy spots</li></ul>
+        <div class="best"><b>Best for</b><br>First-timers who want the must-sees, rafting, manta and a livelier scene.</div>
       </div>
-    </div></div>
-
-    <div class="station n-sun"><div class="node"></div><div class="card">
-      <div class="photo"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/RICE_TERRACE_OF_SIDEMEN_EAST_BALI.jpg" alt="Reisterrassen von Sidemen, Ost-Bali" onerror="this.style.display='none'"><span class="cap">Reisterrassen Sidemen · Wikimedia Commons</span></div>
-      <div class="cbody">
-        <div class="toprow"><h3>Sidemen</h3><span class="when">02.–04.09 · 2 Nächte</span><span class="pill sun">Mount Agung</span></div>
-        <p class="lead">Stilles Dorf am Fuß des Mount Agung. Reisterrassen, Vulkanblick, das authentischste Stück der Reise. Bewusster Kontrast: nach Camp und Wasserfällen hier Berge und Dorfleben.</p>
-        <div class="block"><div class="lbl">Was</div><ul class="clean">
-          <li>Daueraussicht auf den Agung, am schönsten bei Sonnenaufgang.</li>
-          <li>Gembleng Wasserfall, Tirta Gangga, Pura Lempuyang (Gates of Heaven), Besakih.</li>
-          <li>Gojek und Grab greifen hier kaum. Lokaler Fahrer über die Unterkunft.</li>
-        </ul></div>
-        <div class="block"><div class="lbl">Schlafen · Bambus- und Eco-Villen mit Agung-Blick</div><div class="booklinks">
-          <a href="https://www.booking.com/searchresults.html?ss=Sidemen+Bali" target="_blank" rel="noopener">Booking <span class="ar">↗</span></a>
-          <a href="https://www.airbnb.com/s/Sidemen--Bali/homes" target="_blank" rel="noopener">Airbnb <span class="ar">↗</span></a>
-        </div></div>
-        <div class="leg"><span class="arrow">→</span><span>Auf die Bukit-Halbinsel, Küstenroute über Goa Lawah</span><span class="time">ca. 2,5–3 h</span></div>
-      </div>
-    </div></div>
-
-    <div class="station n-coral"><div class="node"></div><div class="card">
-      <div class="photo"><img src="https://upload.wikimedia.org/wikipedia/commons/0/07/Pantai_Melasti,_Bali.jpg" alt="Pantai Melasti, weißer Sandstrand mit Kalksteinklippen" onerror="this.style.display='none'"><span class="cap">Pantai Melasti · Wikimedia Commons</span></div>
-      <div class="cbody">
-        <div class="toprow"><h3>Bukit · Uluwatu</h3><span class="when">04.–05.09 · 1 Nacht</span><span class="pill coral">Klippen · Strand</span></div>
-        <p class="lead">Kalksteinklippen, weiße Strände, flughafennah. Spektakulärer Abschluss ohne Stress am Abreisetag.</p>
-        <div class="block"><div class="lbl">Was</div><ul class="clean">
-          <li>Melasti Beach: über 1 km weißer Sand, Klippen, türkises Wasser. Eintritt 10.000–33.000 IDR inkl. Parken.</li>
-          <li>Uluwatu-Tempel mit Kecak-Tanz am Abend. Achtung: freche Affen.</li>
-          <li>Nur rund 30 Minuten zum Flughafen.</li>
-        </ul></div>
-        <div class="block"><div class="lbl">Schlafen</div><div class="booklinks">
-          <a href="https://www.booking.com/searchresults.html?ss=Uluwatu+Bali" target="_blank" rel="noopener">Booking <span class="ar">↗</span></a>
-          <a href="https://www.airbnb.com/s/Uluwatu--Bali/homes" target="_blank" rel="noopener">Airbnb <span class="ar">↗</span></a>
-        </div></div>
-        <div class="leg"><span class="arrow">→</span><span>05.09: morgens Melasti oder Uluwatu, dann Flughafen DPS</span><span class="time">ca. 30 min</span></div>
-      </div>
-    </div></div>
-  </div>
-</section>
-
-<section id="de-transport" class="bgT"><div class="wrap">
-  <div class="sec-head"><span class="no">02</span><h2>Fortbewegung</h2></div>
-  <p class="intro">Du fährst selbst nicht, dich fährt jemand. Drei Bausteine: Auto mit Fahrer für die langen Etappen, Gojek und Grab für kurze Wege im Süden, lokaler Fahrer für die ländlichen Basen.</p>
-  <div class="tstack">
-    <div class="tcard"><div class="role">Lange Etappen</div><h4>Auto mit Fahrer</h4><p>Auf Bali Standard. Auto plus einheimischer Fahrer für den ganzen Tag, über Hotel oder Anbieter. Er wartet, spontane Stopps inklusive.</p><p class="note">Keiner navigiert, alle schauen aus dem Fenster.</p></div>
-    <div class="tcard alt"><div class="role">Kurze Wege im Süden</div><h4>Gojek &amp; Grab</h4><p>Ride-Hailing. GoRide und GrabBike fahren dich auf dem Roller, GoCar und GrabCar im Auto. Du bist Passagier, kein Führerschein. Gut in Canggu, Bukit und Denpasar.</p><p class="note">Im Stau ist die Roller-Variante schneller als das Auto.</p></div>
-    <div class="tcard rural"><div class="role">Munduk &amp; Sidemen</div><h4>Lokaler Fahrer</h4><p>Hier sind Gojek und Grab unzuverlässig. Die Unterkunft organisiert einen Fahrer. Bei der Buchung darauf achten.</p></div>
-    <div class="tcard"><div class="role">Falls jemand selbst fährt</div><h4>Roller mieten</h4><p>Internationaler Führerschein mit Motorrad-Eintrag nötig, sonst Bußgeld und keine Versicherung im Schadensfall. Vor dem Losfahren das Fahrzeug komplett filmen.</p></div>
+    </div>
   </div>
 </div></section>
 
-<section id="de-check" class="bgS"><div class="wrap">
-  <div class="sec-head"><span class="no">03</span><h2>Checkliste bis zum Abflug</h2></div>
-  <p class="intro">Diese Liste liegt nur in deinem Browser. Nichts wird geteilt, niemand kann etwas überschreiben, aber Freunde sehen deine Haken auch nicht.</p>
-  <div class="chk-group"><h4>Buchen &amp; organisieren</h4>
-    <div class="chk"><input type="checkbox" id="d1"><label for="d1">Flüge bestätigt (21.08. raus, 05.09. zurück)</label></div>
-    <div class="chk"><input type="checkbox" id="d2"><label for="d2">Vor-Camp-Unterkunft Canggu 22.–24.08.<span class="sub">Sa-Anreise, eigener Transfer</span></label></div>
-    <div class="chk"><input type="checkbox" id="d3"><label for="d3">Camp 24.–31.08. bestätigt</label></div>
-    <div class="chk"><input type="checkbox" id="d4"><label for="d4">Unterkunft Munduk 31.08.–02.09.</label></div>
-    <div class="chk"><input type="checkbox" id="d5"><label for="d5">Unterkunft Sidemen 02.–04.09.<span class="sub">Agung-Blick, Fahrer-Option</span></label></div>
-    <div class="chk"><input type="checkbox" id="d6"><label for="d6">Unterkunft Bukit/Uluwatu 04.–05.09.</label></div>
-    <div class="chk"><input type="checkbox" id="d7"><label for="d7">Fahrer für die 3 langen Etappen anfragen</label></div>
+<section class="bg2"><div class="wrap">
+  <div class="sec-head"><span class="no">02</span><h2>Choose a route</h2></div>
+  <p class="intro">Each route is a chain of short hops, not one long drive. The sights sit along the way. Tap a route, and open the live map.</p>
+  <div class="note-box"><b>Tip from the camp week</b>The camp is in the south, so you can already tick off nearby southern sights in your free time after surfing, for example temples or Bukit beaches. That lets the second week head north first. The camp week is built around surf sessions, so this works for closer spots, not a full day trip.</div>
+  <div class="routebar">
+    <button class="rbtn r1 active" onclick="setRoute('r1')">Route 1 · The quiet Bali<small>Munduk · Sidemen · Bukit</small></button>
+    <button class="rbtn r2" onclick="setRoute('r2')">Route 2 · Classic highlights<small>Ubud · Nusa Penida · Uluwatu</small></button>
   </div>
-  <div class="chk-group"><h4>Dokumente &amp; Gebühren</h4>
-    <div class="chk"><input type="checkbox" id="d8"><label for="d8">Reisepass 6 Monate gültig, 2 freie Seiten</label></div>
-    <div class="chk"><input type="checkbox" id="d9"><label for="d9">e-VOA online, 48 h vorher<span class="sub">evisa.imigrasi.go.id · 500.000 IDR</span></label></div>
-    <div class="chk"><input type="checkbox" id="d10"><label for="d10">Bali-Abgabe zahlen<span class="sub">Love Bali · 150.000 IDR · QR speichern</span></label></div>
-    <div class="chk"><input type="checkbox" id="d11"><label for="d11">All Indonesia App, Einreisekarte</label></div>
-    <div class="chk"><input type="checkbox" id="d12"><label for="d12">ELEFAND registrieren<span class="sub">Auswärtiges Amt</span></label></div>
-    <div class="chk"><input type="checkbox" id="d13"><label for="d13">Reiseversicherung mit Surf-Deckung</label></div>
+
+  <!-- ROUTE 1 EN -->
+  <div class="routebox r1 show">
+    <a class="maplink" href="https://www.google.com/maps/dir/Canggu,+Bali/Jatiluwih/Pura+Ulun+Danu+Bratan/Munduk,+Bali/Kintamani/Sidemen,+Bali/Uluwatu/Ngurah+Rai+Airport" target="_blank" rel="noopener">🗺 Open Route 1 in Google Maps</a>
+    <div class="via"><div class="t">▼ 45 min</div><div class="v"><h4>Jatiluwih rice terraces</h4><p>UNESCO terraces, quiet, walk the paths. On the way north.</p></div></div>
+    <div class="via"><div class="t">▼ 30 min</div><div class="v"><h4>Pura Ulun Danu Bratan</h4><p>The iconic lake temple. Quick stop, great photos.</p></div></div>
+    <div class="hop">▼ 30 min · arrive Munduk</div>
+    <div class="card"><div class="photo"><img src="https://upload.wikimedia.org/wikipedia/commons/6/67/Munduk_air_terjun_2009.jpg" alt="Munduk waterfall" onerror="this.style.display='none'"><span class="cap">Munduk · Wikimedia Commons</span></div>
+      <div class="cbody"><div class="toprow"><h3>Munduk</h3><span class="when">31 Aug–2 Sep · 2 nights</span><span class="pill green">Highlands</span></div>
+        <p class="lead">Cool, green highlands. Base for the waterfalls.</p>
+        <ul class="clean"><li>Waterfall trail: Munduk, Red Coral, Belong, Hidden Valley (go early).</li><li>Rice terraces, village walks, cool evenings.</li></ul>
+        <div class="booklinks"><a href="https://www.booking.com/searchresults.html?ss=Munduk+Bali" target="_blank" rel="noopener">Booking <span class="ar">↗</span></a><a href="https://www.airbnb.com/s/Munduk--Bali/homes" target="_blank" rel="noopener">Airbnb <span class="ar">↗</span></a></div>
+      </div>
+    </div>
+    <div class="via"><div class="t">▼ ~1.5 h</div><div class="v"><h4>Kintamani · Batur caldera</h4><p>Lunch with a view over the volcano and crater lake. This is the volcano on the way.</p></div></div>
+    <div class="hop">▼ ~1 h · arrive Sidemen</div>
+    <div class="card"><div class="photo"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/RICE_TERRACE_OF_SIDEMEN_EAST_BALI.jpg" alt="Sidemen rice terraces" onerror="this.style.display='none'"><span class="cap">Sidemen · Wikimedia Commons</span></div>
+      <div class="cbody"><div class="toprow"><h3>Sidemen</h3><span class="when">2–4 Sep · 2 nights</span><span class="pill sun">Mount Agung</span></div>
+        <p class="lead">Quiet village below Agung. The most authentic stop.</p>
+        <ul class="clean"><li>Sunrise over Agung, rice terrace walks.</li><li>Day trips (30–60 min): Tirta Gangga, Pura Lempuyang (Gates of Heaven), Besakih.</li></ul>
+        <div class="booklinks"><a href="https://www.booking.com/searchresults.html?ss=Sidemen+Bali" target="_blank" rel="noopener">Booking <span class="ar">↗</span></a><a href="https://www.airbnb.com/s/Sidemen--Bali/homes" target="_blank" rel="noopener">Airbnb <span class="ar">↗</span></a></div>
+      </div>
+    </div>
+    <div class="via"><div class="t">▼ ~1 h</div><div class="v"><h4>Goa Lawah · Padang Bai</h4><p>Coastal temple and a pretty harbour bay. Optional stop on the way south.</p></div></div>
+    <div class="hop">▼ ~1 h · arrive Bukit</div>
+    <div class="card"><div class="photo"><img src="https://upload.wikimedia.org/wikipedia/commons/0/07/Pantai_Melasti,_Bali.jpg" alt="Pantai Melasti" onerror="this.style.display='none'"><span class="cap">Pantai Melasti · Wikimedia Commons</span></div>
+      <div class="cbody"><div class="toprow"><h3>Bukit · Uluwatu</h3><span class="when">4–5 Sep · 1 night</span><span class="pill coral">Cliffs</span></div>
+        <p class="lead">Cliffs and white beaches, near the airport.</p>
+        <ul class="clean"><li>Melasti Beach, Uluwatu temple with the 6 pm Kecak dance.</li></ul>
+        <div class="tip"><b>Go early</b> Uluwatu temple is busy by late morning. Aim for first thing or stay for the sunset Kecak.</div>
+        <div class="booklinks"><a href="https://www.booking.com/searchresults.html?ss=Uluwatu+Bali" target="_blank" rel="noopener">Booking <span class="ar">↗</span></a><a href="https://www.airbnb.com/s/Uluwatu--Bali/homes" target="_blank" rel="noopener">Airbnb <span class="ar">↗</span></a></div>
+      </div>
+    </div>
+    <div class="via"><div class="t">▼ 30 min</div><div class="v"><h4>Airport DPS</h4><p>5 Sep departure. Short and stress-free from the Bukit.</p></div></div>
   </div>
-  <div class="chk-group"><h4>Gesundheit, Geld &amp; Technik</h4>
-    <div class="chk"><input type="checkbox" id="d14"><label for="d14">Arzt: Impfungen und Reisemedizin</label></div>
-    <div class="chk"><input type="checkbox" id="d15"><label for="d15">Mückenschutz, Sonnencreme SPF 30+ riffschonend</label></div>
-    <div class="chk"><input type="checkbox" id="d16"><label for="d16">eSIM oder SIM klären<span class="sub">IMEI-Regel prüfen</span></label></div>
-    <div class="chk"><input type="checkbox" id="d17"><label for="d17">Bargeld-Strategie und Karte fürs Abheben</label></div>
-  </div>
-  <div class="chk-group"><h4>Kurz vor Abflug</h4>
-    <div class="chk"><input type="checkbox" id="d18"><label for="d18">Vulkanstatus Agung prüfen<span class="sub">volcano.si.edu</span></label></div>
-    <div class="chk"><input type="checkbox" id="d19"><label for="d19">Packen: warme Schicht für kühle Munduk-Abende, feste Schuhe, Powerbank</label></div>
+
+  <!-- ROUTE 2 EN -->
+  <div class="routebox r2">
+    <a class="maplink" href="https://www.google.com/maps/dir/Canggu,+Bali/Ubud,+Bali/Tegallalang/Sanur,+Bali/Nusa+Penida/Uluwatu/Ngurah+Rai+Airport" target="_blank" rel="noopener">🗺 Open Route 2 in Google Maps</a>
+    <div class="hop">▼ ~1 h · arrive Ubud</div>
+    <div class="card"><div class="photo"><img src="https://upload.wikimedia.org/wikipedia/commons/8/8b/1_Tegalalang_rice_terrace_ubud_bali.jpg" alt="Tegallalang rice terrace" onerror="this.style.display='none'"><span class="cap">Tegallalang · Wikimedia Commons</span></div>
+      <div class="cbody"><div class="toprow"><h3>Ubud</h3><span class="when">31 Aug–2 Sep · 2 nights</span><span class="pill sun">Centre</span></div>
+        <p class="lead">Cultural heart. Everything here is a 15–30 min hop.</p>
+        <ul class="clean"><li>Tegallalang rice fields (20 min north).</li><li>Ayung river jungle rafting (half day).</li><li>Temples: Tirta Empul, Goa Gajah, Monkey Forest.</li></ul>
+        <div class="tip"><b>Go early</b> Tegallalang and the Monkey Forest get extremely crowded by late morning. Arrive 7–8 am for space and light.</div>
+        <div class="booklinks"><a href="https://www.booking.com/searchresults.html?ss=Ubud+Bali" target="_blank" rel="noopener">Booking <span class="ar">↗</span></a><a href="https://www.airbnb.com/s/Ubud--Bali/homes" target="_blank" rel="noopener">Airbnb <span class="ar">↗</span></a></div>
+      </div>
+    </div>
+    <div class="via"><div class="t">▼ ~45 min</div><div class="v"><h4>Drive to Sanur harbour</h4><p>Departure point for the Nusa Penida fast boat.</p></div></div>
+    <div class="hop">▼ ~30–45 min boat · Nusa Penida</div>
+    <div class="card"><div class="photo"><img src="https://upload.wikimedia.org/wikipedia/commons/b/bf/Kelingking_Beach,_Nusa_Penida.jpg" alt="Kelingking Beach, Nusa Penida" onerror="this.style.display='none'"><span class="cap">Nusa Penida · Wikimedia Commons</span></div>
+      <div class="cbody"><div class="toprow"><h3>Nusa Penida</h3><span class="when">day trip</span><span class="pill turq">Manta rays</span></div>
+        <p class="lead">The manta day, plus the island's cliff icons.</p>
+        <ul class="clean"><li>Manta snorkel: resident mantas, ~90–95% success, Aug–Sep a good window.</li><li>Kelingking (T-Rex cliff), Broken Beach, Angel's Billabong.</li><li>Open water, can be choppy and cooler, bring a rashguard.</li></ul>
+        <div class="tip"><b>Plan</b> Long day with an early start. Sightings are likely but never 100%. Can also be an overnight.</div>
+        <div class="booklinks"><a href="https://www.booking.com/searchresults.html?ss=Sanur+Bali" target="_blank" rel="noopener">Stay near Sanur <span class="ar">↗</span></a></div>
+      </div>
+    </div>
+    <div class="via"><div class="t">▼ ~1.5 h</div><div class="v"><h4>To the Bukit peninsula</h4><p>Boat back to Sanur, then south to Uluwatu.</p></div></div>
+    <div class="card"><div class="photo"><img src="https://upload.wikimedia.org/wikipedia/commons/8/88/Uluwatu_Temple_Cliff,_Bali.jpg" alt="Uluwatu Temple cliff" onerror="this.style.display='none'"><span class="cap">Uluwatu · Wikimedia Commons</span></div>
+      <div class="cbody"><div class="toprow"><h3>Uluwatu · Bukit</h3><span class="when">2–5 Sep · a few nights</span><span class="pill coral">Cliffs · Scene</span></div>
+        <p class="lead">Cliff temple, surf breaks, beach clubs, white sand. Lively, near the airport.</p>
+        <ul class="clean"><li>Uluwatu temple, 6 pm Kecak dance at sunset.</li><li>Beaches: Melasti, Padang Padang, Bingin.</li></ul>
+        <div class="tip"><b>Go early</b> Uluwatu temple and the top beaches fill up by late morning in August.</div>
+        <div class="booklinks"><a href="https://www.booking.com/searchresults.html?ss=Uluwatu+Bali" target="_blank" rel="noopener">Booking <span class="ar">↗</span></a><a href="https://www.airbnb.com/s/Uluwatu--Bali/homes" target="_blank" rel="noopener">Airbnb <span class="ar">↗</span></a></div>
+      </div>
+    </div>
+    <div class="via"><div class="t">▼ 30 min</div><div class="v"><h4>Airport DPS</h4><p>5 Sep departure.</p></div></div>
   </div>
 </div></section>
 
-<section id="de-budget"><div class="wrap">
-  <div class="sec-head"><span class="no">04</span><h2>Budget grob</h2></div>
-  <p class="intro">Richtwerte pro Person, Stand 2026. Keine Festpreise, nur Orientierung.</p>
-  <table class="budget">
-    <tr><td>e-VOA Visum</td><td>500.000 IDR · ca. 30–35 €</td></tr>
-    <tr><td>Bali-Tourismusabgabe</td><td>150.000 IDR · ca. 10 €</td></tr>
-    <tr><td>Fahrer pro langer Etappe (geteilt)</td><td>500.000–800.000 IDR / Tag</td></tr>
-    <tr><td>Unterkunft Mittelklasse</td><td>ca. 300.000–700.000 IDR / Nacht</td></tr>
-    <tr><td>Essen Warung</td><td>ca. 30.000–60.000 IDR / Gericht</td></tr>
-    <tr><td>Eintritte Wasserfall / Strand</td><td>ca. 10.000–30.000 IDR</td></tr>
-    <tr><td>Gojek / Grab kurze Strecke</td><td>ca. 15.000–50.000 IDR</td></tr>
-  </table>
-</div></section>
-
-<section id="de-sicher" class="bg2"><div class="wrap">
-  <div class="sec-head"><span class="no">05</span><h2>Sicherheit &amp; Recht</h2></div>
-  <details class="acc"><summary>Neues Strafrecht seit Januar 2026 <span class="plus">+</span></summary><div class="abody"><ul class="clean">
-    <li>Außerehelicher Geschlechtsverkehr und unverheiratetes Zusammenwohnen sind strafbar. Anzeigeberechtigt nur Ehepartner, Eltern, Kinder.</li>
-    <li>Wichtiger: abfällige Online-Äußerungen über die indonesische Politik oder Religion können zur Abschiebung führen.</li>
+<section><div class="wrap">
+  <div class="sec-head"><span class="no">03</span><h2>Good to know (both routes)</h2></div>
+  <details class="acc"><summary>Getting around <span class="plus">+</span></summary><div class="abody"><ul class="clean">
+    <li>Scooters and local drivers are available everywhere, so transport is never a blocker.</li>
+    <li>South and Ubud town: Gojek and Grab (scooter or car) for short hops, no licence needed.</li>
+    <li>Patchy for apps: Munduk, Sidemen, and some Ubud spots like Tegallalang ban app pickups. Use a local driver (your stay arranges one) or rent a scooter.</li>
+    <li>Long legs and day trips: a car with driver for the day is the easy option.</li>
   </ul></div></details>
-  <details class="acc"><summary>Vulkane <span class="plus">+</span></summary><div class="abody"><ul class="clean">
-    <li>Agung und Batur sind aktiv. Agung laut PVMBG auf Stufe 1 (Normal, von 4).</li>
-    <li>Blick aus Sidemen unproblematisch. Besteigung nur mit registriertem Guide.</li>
-    <li>Status kurz vor Abflug prüfen.</li>
+  <details class="acc"><summary>Visa &amp; fees (UK &amp; DE) <span class="plus">+</span></summary><div class="abody"><ul class="clean">
+    <li>e-VOA 500,000 IDR (~£25 / ~30 €), 30 days, extendable once. Apply at evisa.imigrasi.go.id, 48 h before.</li>
+    <li>Passport valid 6+ months, 2 blank pages, onward ticket.</li>
+    <li>Bali tourist levy 150,000 IDR (~£7 / ~10 €) via the Love Bali portal.</li>
+    <li>UK travellers: bring a travel adapter (type G plugs do not fit type C/F sockets).</li>
   </ul></div></details>
-  <details class="acc"><summary>Drogen &amp; Alkohol <span class="plus">+</span></summary><div class="abody"><ul class="clean warn">
-    <li>Sehr harte Drogengesetze. Finger weg von allem.</li>
-    <li>Vorsicht bei billigem Schnaps, Methanol-Vergiftungen kommen vor. Versiegelte Markenflaschen.</li>
+  <details class="acc"><summary>When to go early <span class="plus">+</span></summary><div class="abody"><ul class="clean">
+    <li>August is peak season, the busiest month, with very high crowds in the south and Ubud.</li>
+    <li>Tegallalang, Uluwatu temple and the Monkey Forest get extremely crowded by late morning. Arrive 7–8 am.</li>
+    <li>Quieter by nature: Munduk, Sidemen and the north stay calm even in peak season.</li>
   </ul></div></details>
-  <details class="acc"><summary>Häufige Scams <span class="plus">+</span></summary><div class="abody"><ul class="clean warn">
-    <li>Geld nur in offiziellen Wechselstuben, Noten selbst nachzählen.</li>
-    <li>Bargeld nur an Automaten in Bankfilialen (Skimming).</li>
-    <li>Roller vor dem Losfahren filmen. Keinen Pass als Pfand.</li>
-    <li>Taxi: Grab, Gojek, Bluebird. Tourist-Police: +62 361 224111.</li>
+  <details class="acc"><summary>Safety &amp; law <span class="plus">+</span></summary><div class="abody"><ul class="clean warn">
+    <li>Since Jan 2026: insulting Indonesian politics/religion online can mean deportation.</li>
+    <li>Very harsh drug laws. Be careful with cheap local spirits (methanol).</li>
+    <li>Agung volcano is at Level 1 (Normal). Check status before you fly.</li>
+    <li>Change money at official counters, ATMs inside banks. Tourist police +62 361 224111.</li>
   </ul></div></details>
-</div></section>
-
-<section id="de-prakt"><div class="wrap">
-  <div class="sec-head"><span class="no">06</span><h2>Praktisch &amp; Einreise</h2></div>
   <details class="acc"><summary>Lapoint Camp Canggu <span class="plus">+</span></summary><div class="abody"><ul class="clean">
-    <li>Adresse: Jalan Tanah Barak 49, Canggu, Badung, Bali 80361. Kontakt: canggu@lapointcamps.com, +62 812 46 757 225.</li>
-    <li>Check-in montags ab 15:00, Check-out montags 10:00. 24. und 31.08. sind beide Montage.</li>
-    <li>Flughafen-Transfer nur montags, vorab dazubuchen. Da du Samstag ankommst, organisierst du Sa und So selbst.</li>
-    <li>Mitbringen: Pass, Versicherung mit Surf-Deckung, Badesachen, Flasche, SPF 30+, Mückenschutz, Strandtuch.</li>
-    <li>Cash ist König. Camp-Extras bei Abreise bar an den Manager.</li>
-    <li>Bali gilt als malariafrei, Dengue existiert, täglich Mückenschutz.</li>
-  </ul></div></details>
-  <details class="acc"><summary>Visum &amp; Gebühren <span class="check">vor Abflug prüfen</span><span class="plus">+</span></summary><div class="abody"><ul class="clean">
-    <li>e-VOA für Deutsche: 500.000 IDR (ca. 30–35 €), 30 Tage, einmal verlängerbar. Für gut zwei Wochen keine Verlängerung nötig.</li>
-    <li>Vorab online evisa.imigrasi.go.id, 48 h vorher. Pass 6 Monate gültig, Rückflugticket.</li>
-    <li>Bali-Tourismusabgabe 150.000 IDR über "Love Bali", QR aufheben.</li>
-    <li><b>Achtung:</b> Das Lapoint-PDF nennt veraltete Zahlen. Es gilt das Obige.</li>
-  </ul></div></details>
-  <details class="acc"><summary>Vor Ort <span class="plus">+</span></summary><div class="abody"><ul class="clean">
-    <li>Strom: 230 V, Steckdosen Typ C und F, identisch zu Deutschland. Kein Adapter nötig.</li>
-    <li>SIM: lokale SIM mit IMEI-Registrierung, alternativ eSIM vorab.</li>
-    <li>Leitungswasser nicht trinken.</li>
-    <li>August/September Trockenzeit, klare Vulkansicht. Munduk und Sidemen abends kühler.</li>
-    <li>Notrufe: 112 allgemein, 110 Polizei, 118/119 Rettung.</li>
+    <li>Jalan Tanah Barak 49, Canggu. canggu@lapointcamps.com, +62 812 46 757 225.</li>
+    <li>Check-in Mondays 15:00, check-out Mondays 10:00. Transfer Mondays only, book ahead. Saturday arrival = own transfer.</li>
+    <li>Bring: insurance covering surfing, reef-safe SPF 30+, repellent. Cash for camp extras.</li>
   </ul></div></details>
 </div></section>
-</main>
 
 <footer><div class="wrap">
-  <div><b>Bilder:</b> Wikimedia Commons (Ulun Danu Bratan, Munduk, Sidemen, Pantai Melasti), CC BY-SA. Canggu-Slot für dein eigenes Foto.</div>
-  <div><b>Stand:</b> Juni 2026. Vor Abflug prüfen: Visum, Abgabe, All Indonesia, IMEI, Vulkanstatus.</div>
-  <div><b>Quellen:</b> Auswärtiges Amt, ADAC, Smithsonian GVP / PVMBG, Lapoint Camps.</div>
+  <div><b>Images:</b> Wikimedia Commons (Ulun Danu Bratan, Munduk, Sidemen, Pantai Melasti, Tegallalang, Kelingking/Nusa Penida, Uluwatu), CC BY-SA.</div>
+  <div><b>As of June 2026.</b> Re-check before departure: visa, levy, All Indonesia app, IMEI rule, volcano status. Sources: FCDO/GOV.UK, Auswärtiges Amt, US State Dept, Smithsonian GVP/PVMBG, Lapoint.</div>
 </div></footer>
 </div>
 
-<!-- ================= ENGLISH ================= -->
-<div id="en" class="lang-block" hidden>
+<!-- ===== DEUTSCH ===== -->
+<div id="de" class="lang-block" hidden>
 <header class="hero">
-  <div class="bg"><img src="https://upload.wikimedia.org/wikipedia/commons/7/77/Pura_Ulun_Danu_Bratan,_2022.jpg" alt="Pura Ulun Danu Bratan, the lake temple near Munduk, Bali" onerror="this.style.display='none'"></div>
+  <div class="bg"><img src="https://upload.wikimedia.org/wikipedia/commons/7/77/Pura_Ulun_Danu_Bratan,_2022.jpg" alt="Bali Tempel am See" onerror="this.style.display='none'"></div>
   <div class="scrim"></div>
-  <div class="wrap">
-    <div class="eyebrow">21 Aug – 5 Sep 2026 · Bali, Indonesia</div>
-    <h1>Bali<span class="dot">.</span></h1>
-    <div class="sub">After the surf camp: from the north over the volcanoes to the south.</div>
-  </div>
+  <div class="wrap"><div class="eyebrow">21.08 – 05.09.2026 · Bali</div><h1>Bali<span class="dot">.</span></h1><div class="sub">Nach dem Camp: zwei Wege für die fünf Nächte. Entscheidet als Gruppe.</div></div>
 </header>
 
-<div class="ribbonwrap"><div class="wrap"><div class="ribbon">
-  <div class="stop s-turq"><div class="ico">🌊</div><div class="nm">Canggu</div><div class="dt">22–31 Aug · Camp</div></div>
-  <div class="stop"><div class="ico">💧</div><div class="nm">Munduk</div><div class="dt">31 Aug–2 Sep</div></div>
-  <div class="stop s-sun"><div class="ico">🌋</div><div class="nm">Sidemen</div><div class="dt">2–4 Sep</div></div>
-  <div class="stop s-coral"><div class="ico">🪨</div><div class="nm">Bukit</div><div class="dt">4–5 Sep</div></div>
-  <div class="stop s-turq"><div class="ico">✈️</div><div class="nm">DPS</div><div class="dt">5 Sep</div></div>
-</div></div></div>
-
-<nav class="toc"><div class="wrap">
-  <a href="#en-route">Route</a><a href="#en-transport">Getting around</a><a href="#en-check">Checklist</a><a href="#en-budget">Budget</a><a href="#en-safety">Safety</a><a href="#en-prac">Practical</a>
-</div></nav>
-
-<main>
-<section id="en-route"><div class="wrap">
-  <div class="sec-head"><span class="no">01</span><h2>The route</h2></div>
-  <p class="intro">One week of camp in Canggu, then five nights on the move. Three bases instead of constant driving: waterfalls in the highlands, rice terraces below Mount Agung, cliffs and white sand at the end. Every drive is the scenery too.</p>
-
-  <div class="station n-turq"><div class="node"></div><div class="card">
-    <div class="photo slot"><span>Drop your own surf/camp photo here:<br>images/canggu.jpg</span></div>
-    <div class="cbody">
-      <div class="toprow"><h3>Canggu</h3><span class="when">22–31 Aug</span><span class="pill turq">Coast · Camp</span></div>
-      <p class="lead">Arrival and surf camp. Two nights in or near Canggu before camp so the transfer stays short.</p>
-      <div class="block"><div class="lbl">What</div><ul class="clean">
-        <li>22–24 Aug: free time, settle in, stay near camp.</li>
-        <li>24–31 Aug: Lapoint surf camp, fixed weekly structure (24 &amp; 31 Aug are Mondays).</li>
-        <li>Airport to camp about 1 hour.</li>
-      </ul></div>
-      <div class="block"><div class="lbl">Stay (pre-camp)</div><div class="booklinks">
-        <a href="https://www.booking.com/searchresults.html?ss=Canggu+Bali" target="_blank" rel="noopener">Booking <span class="ar">↗</span></a>
-        <a href="https://www.airbnb.com/s/Canggu--Bali/homes" target="_blank" rel="noopener">Airbnb <span class="ar">↗</span></a>
-      </div></div>
-      <div class="leg"><span class="arrow">→</span><span>To Munduk via the Jatiluwih rice terraces and Lake Bratan</span><span class="time">approx 2–2.5 h</span></div>
+<section><div class="wrap">
+  <div class="sec-head"><span class="no">01</span><h2>Die zwei Routen im Vergleich</h2></div>
+  <p class="intro">Die Surfwoche in Canggu steht fest. Es geht um die zweite Woche. Die zwei Routen ziehen in unterschiedliche Richtungen, entscheidet gemeinsam.</p>
+  <div class="cmp">
+    <div class="col r1col">
+      <div class="photo"><span class="ribbon-tag r1">Route 1</span><img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/RICE_TERRACE_OF_SIDEMEN_EAST_BALI.jpg" alt="Reisterrassen Sidemen" onerror="this.style.display='none'"></div>
+      <div class="colbody">
+        <h3>Das ruhige Bali</h3>
+        <div class="tag">Munduk · Sidemen · Bukit</div>
+        <div class="route-line">Abseits der Massen. Natur, Vulkan, deutlich weniger Touristen.</div>
+        <div class="pc-h pro">Vorteile</div>
+        <ul class="pc pro"><li>Viel weniger Touristen, vor allem Munduk und Sidemen</li><li>Wasserfälle, Reisterrassen, Blick auf den Agung</li><li>Die Fahrten sind landschaftlich, die Ziele liegen am Weg</li><li>Sidemen ist "Ubud, bevor die Touristen kamen"</li></ul>
+        <div class="pc-h con">Nachteile</div>
+        <ul class="pc con"><li>Deckt insgesamt mehr der Insel ab</li><li>Kaum Nachtleben oder Szene</li><li>Keine Mantas, weniger berühmte Fotospots</li></ul>
+        <div class="best"><b>Passt für</b><br>Wer das authentische, ruhigere Bali und einen schönen Roadtrip will.</div>
+      </div>
     </div>
-  </div></div>
-
-  <div class="station"><div class="node"></div><div class="card">
-    <div class="photo"><img src="https://upload.wikimedia.org/wikipedia/commons/6/67/Munduk_air_terjun_2009.jpg" alt="Waterfall near Munduk" onerror="this.style.display='none'"><span class="cap">Munduk waterfall · Wikimedia Commons</span></div>
-    <div class="cbody">
-      <div class="toprow"><h3>Munduk</h3><span class="when">31 Aug–2 Sep · 2 nights</span><span class="pill green">Highlands</span></div>
-      <p class="lead">Cool, green highlands. Waterfalls, rice terraces, hardly any crowds. A calm start after the camp week.</p>
-      <div class="block"><div class="lbl">What</div><ul class="clean">
-        <li>Waterfall trail: Munduk, Red Coral, Belong, Hidden Valley. Entry 20,000–30,000 IDR each.</li>
-        <li>Rice terraces, village paths, the lake temple at Bratan.</li>
-        <li>Go early and you get them almost to yourself.</li>
-      </ul></div>
-      <div class="block"><div class="lbl">Stay</div><div class="booklinks">
-        <a href="https://www.booking.com/searchresults.html?ss=Munduk+Bali" target="_blank" rel="noopener">Booking <span class="ar">↗</span></a>
-        <a href="https://www.airbnb.com/s/Munduk--Bali/homes" target="_blank" rel="noopener">Airbnb <span class="ar">↗</span></a>
-      </div></div>
-      <div class="leg"><span class="arrow">→</span><span>To Sidemen across the Batur caldera (Kintamani). Longest, best leg, lunch stop with caldera views.</span><span class="time">approx 2.5–3 h</span></div>
+    <div class="col r2col">
+      <div class="photo"><span class="ribbon-tag r2">Route 2</span><img src="https://upload.wikimedia.org/wikipedia/commons/b/bf/Kelingking_Beach,_Nusa_Penida.jpg" alt="Kelingking Beach, Nusa Penida" onerror="this.style.display='none'"></div>
+      <div class="banner">Achtung: Das ist die bekannte Touristenroute. Im August ist Hochsaison, die berühmten Spots sind schon am späten Vormittag voll. Ihr seht die ikonischen Orte, die jeder kennt, nicht das ruhige, ursprüngliche Bali.</div>
+      <div class="colbody">
+        <h3>Die klassischen Highlights</h3>
+        <div class="tag">Ubud · Nusa Penida · Uluwatu</div>
+        <div class="route-line">Die Ikonen. Ubud, Mantas, Uluwatu.</div>
+        <div class="pc-h pro">Vorteile</div>
+        <ul class="pc pro"><li>Die ikonischen Spots: Tegallalang, Uluwatu, Kelingking</li><li>Mit Mantas schnorcheln bei Nusa Penida (~90–95 %)</li><li>Jungle Rafting auf dem Ayung</li><li>Lebendiger: Beach Clubs, Nachtleben, Szene</li><li>Kompakter, weniger Fahrt insgesamt, Grab im Süden</li></ul>
+        <div class="pc-h con">Nachteile</div>
+        <ul class="pc con"><li>Schon am späten Vormittag voll, vor allem Tegallalang und Uluwatu</li><li>Wirkt kommerziell (Schaukeln, Souvenirstände)</li><li>Manta = langer Tag mit früher Überfahrt, nie 100 %</li><li>Weniger ursprünglich, teurer an den vollen Spots</li></ul>
+        <div class="best"><b>Passt für</b><br>Erstbesucher, die die Must-sees, Rafting, Mantas und mehr Szene wollen.</div>
+      </div>
     </div>
-  </div></div>
+  </div>
+</div></section>
 
-  <div class="station n-sun"><div class="node"></div><div class="card">
-    <div class="photo"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/RICE_TERRACE_OF_SIDEMEN_EAST_BALI.jpg" alt="Rice terraces of Sidemen, East Bali" onerror="this.style.display='none'"><span class="cap">Sidemen rice terraces · Wikimedia Commons</span></div>
-    <div class="cbody">
-      <div class="toprow"><h3>Sidemen</h3><span class="when">2–4 Sep · 2 nights</span><span class="pill sun">Mount Agung</span></div>
-      <p class="lead">A quiet village below Mount Agung. Rice terraces, volcano views, the most authentic part of the trip. A deliberate contrast: after camp and waterfalls, here it is mountains and village life.</p>
-      <div class="block"><div class="lbl">What</div><ul class="clean">
-        <li>Constant view of Agung, best at sunrise.</li>
-        <li>Gembleng waterfall, Tirta Gangga, Pura Lempuyang (Gates of Heaven), Besakih.</li>
-        <li>Gojek and Grab barely work here. Use a local driver via your stay.</li>
-      </ul></div>
-      <div class="block"><div class="lbl">Stay · bamboo &amp; eco villas with Agung views</div><div class="booklinks">
-        <a href="https://www.booking.com/searchresults.html?ss=Sidemen+Bali" target="_blank" rel="noopener">Booking <span class="ar">↗</span></a>
-        <a href="https://www.airbnb.com/s/Sidemen--Bali/homes" target="_blank" rel="noopener">Airbnb <span class="ar">↗</span></a>
-      </div></div>
-      <div class="leg"><span class="arrow">→</span><span>To the Bukit peninsula, coastal route via Goa Lawah</span><span class="time">approx 2.5–3 h</span></div>
+<section class="bg2"><div class="wrap">
+  <div class="sec-head"><span class="no">02</span><h2>Route wählen</h2></div>
+  <p class="intro">Jede Route ist eine Kette kurzer Etappen, keine lange Fahrt. Die Ziele liegen am Weg. Route antippen und die Live-Karte öffnen.</p>
+  <div class="note-box"><b>Tipp aus der Camp-Woche</b>Das Camp liegt im Süden, also könnt ihr nahe südliche Ziele schon in der Freizeit nach dem Surfen abhaken, etwa Tempel oder Strände auf der Bukit. So kann die zweite Woche zuerst in den Norden. Die Camp-Woche ist um Surf-Sessions getaktet, das klappt für nahe Spots, nicht für einen ganzen Tagesausflug.</div>
+  <div class="routebar">
+    <button class="rbtn r1 active" onclick="setRoute('r1')">Route 1 · Das ruhige Bali<small>Munduk · Sidemen · Bukit</small></button>
+    <button class="rbtn r2" onclick="setRoute('r2')">Route 2 · Klassische Highlights<small>Ubud · Nusa Penida · Uluwatu</small></button>
+  </div>
+
+  <!-- ROUTE 1 DE -->
+  <div class="routebox r1 show">
+    <a class="maplink" href="https://www.google.com/maps/dir/Canggu,+Bali/Jatiluwih/Pura+Ulun+Danu+Bratan/Munduk,+Bali/Kintamani/Sidemen,+Bali/Uluwatu/Ngurah+Rai+Airport" target="_blank" rel="noopener">🗺 Route 1 in Google Maps öffnen</a>
+    <div class="via"><div class="t">▼ 45 min</div><div class="v"><h4>Jatiluwih Reisterrassen</h4><p>UNESCO-Terrassen, ruhig, durchlaufen. Liegt auf dem Weg.</p></div></div>
+    <div class="via"><div class="t">▼ 30 min</div><div class="v"><h4>Pura Ulun Danu Bratan</h4><p>Der ikonische Tempel am See. Kurzer Stopp, tolle Fotos.</p></div></div>
+    <div class="hop">▼ 30 min · Ankunft Munduk</div>
+    <div class="card"><div class="photo"><img src="https://upload.wikimedia.org/wikipedia/commons/6/67/Munduk_air_terjun_2009.jpg" alt="Munduk Wasserfall" onerror="this.style.display='none'"><span class="cap">Munduk · Wikimedia Commons</span></div>
+      <div class="cbody"><div class="toprow"><h3>Munduk</h3><span class="when">31.08–02.09 · 2 Nächte</span><span class="pill green">Bergland</span></div>
+        <p class="lead">Kühles, grünes Hochland. Basis für die Wasserfälle.</p>
+        <ul class="clean"><li>Wasserfall-Trail: Munduk, Red Coral, Belong, Hidden Valley (früh hin).</li><li>Reisterrassen, Dorfwege, kühle Abende.</li></ul>
+        <div class="booklinks"><a href="https://www.booking.com/searchresults.html?ss=Munduk+Bali" target="_blank" rel="noopener">Booking <span class="ar">↗</span></a><a href="https://www.airbnb.com/s/Munduk--Bali/homes" target="_blank" rel="noopener">Airbnb <span class="ar">↗</span></a></div>
+      </div>
     </div>
-  </div></div>
-
-  <div class="station n-coral"><div class="node"></div><div class="card">
-    <div class="photo"><img src="https://upload.wikimedia.org/wikipedia/commons/0/07/Pantai_Melasti,_Bali.jpg" alt="Pantai Melasti, white sand beach with limestone cliffs" onerror="this.style.display='none'"><span class="cap">Pantai Melasti · Wikimedia Commons</span></div>
-    <div class="cbody">
-      <div class="toprow"><h3>Bukit · Uluwatu</h3><span class="when">4–5 Sep · 1 night</span><span class="pill coral">Cliffs · Beach</span></div>
-      <p class="lead">Limestone cliffs, white beaches, close to the airport. A spectacular finish with no stress on departure day.</p>
-      <div class="block"><div class="lbl">What</div><ul class="clean">
-        <li>Melasti Beach: over 1 km of white sand, cliffs, turquoise water. Entry 10,000–33,000 IDR incl. parking.</li>
-        <li>Uluwatu Temple with the evening Kecak dance. Watch the cheeky monkeys.</li>
-        <li>Only about 30 minutes to the airport.</li>
-      </ul></div>
-      <div class="block"><div class="lbl">Stay</div><div class="booklinks">
-        <a href="https://www.booking.com/searchresults.html?ss=Uluwatu+Bali" target="_blank" rel="noopener">Booking <span class="ar">↗</span></a>
-        <a href="https://www.airbnb.com/s/Uluwatu--Bali/homes" target="_blank" rel="noopener">Airbnb <span class="ar">↗</span></a>
-      </div></div>
-      <div class="leg"><span class="arrow">→</span><span>5 Sep: Melasti or Uluwatu in the morning, then airport DPS</span><span class="time">approx 30 min</span></div>
+    <div class="via"><div class="t">▼ ~1,5 h</div><div class="v"><h4>Kintamani · Batur-Caldera</h4><p>Mittagessen mit Blick auf Vulkan und Kratersee. Der Vulkan auf dem Weg.</p></div></div>
+    <div class="hop">▼ ~1 h · Ankunft Sidemen</div>
+    <div class="card"><div class="photo"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/RICE_TERRACE_OF_SIDEMEN_EAST_BALI.jpg" alt="Reisterrassen Sidemen" onerror="this.style.display='none'"><span class="cap">Sidemen · Wikimedia Commons</span></div>
+      <div class="cbody"><div class="toprow"><h3>Sidemen</h3><span class="when">02.–04.09 · 2 Nächte</span><span class="pill sun">Mount Agung</span></div>
+        <p class="lead">Stilles Dorf am Fuß des Agung. Authentischster Stopp.</p>
+        <ul class="clean"><li>Sonnenaufgang über dem Agung, Reisterrassen-Wege.</li><li>Tagesausflüge (30–60 min): Tirta Gangga, Pura Lempuyang, Besakih.</li></ul>
+        <div class="booklinks"><a href="https://www.booking.com/searchresults.html?ss=Sidemen+Bali" target="_blank" rel="noopener">Booking <span class="ar">↗</span></a><a href="https://www.airbnb.com/s/Sidemen--Bali/homes" target="_blank" rel="noopener">Airbnb <span class="ar">↗</span></a></div>
+      </div>
     </div>
-  </div></div>
+    <div class="via"><div class="t">▼ ~1 h</div><div class="v"><h4>Goa Lawah · Padang Bai</h4><p>Küstentempel und hübsche Hafenbucht. Optionaler Stopp Richtung Süden.</p></div></div>
+    <div class="hop">▼ ~1 h · Ankunft Bukit</div>
+    <div class="card"><div class="photo"><img src="https://upload.wikimedia.org/wikipedia/commons/0/07/Pantai_Melasti,_Bali.jpg" alt="Pantai Melasti" onerror="this.style.display='none'"><span class="cap">Pantai Melasti · Wikimedia Commons</span></div>
+      <div class="cbody"><div class="toprow"><h3>Bukit · Uluwatu</h3><span class="when">04.–05.09 · 1 Nacht</span><span class="pill coral">Klippen</span></div>
+        <p class="lead">Klippen und weiße Strände, flughafennah.</p>
+        <ul class="clean"><li>Melasti Beach, Uluwatu-Tempel mit Kecak-Tanz um 18 Uhr.</li></ul>
+        <div class="tip"><b>Früh hin</b> Der Uluwatu-Tempel ist am späten Vormittag voll. Morgens hin oder zum Sonnenuntergangs-Kecak bleiben.</div>
+        <div class="booklinks"><a href="https://www.booking.com/searchresults.html?ss=Uluwatu+Bali" target="_blank" rel="noopener">Booking <span class="ar">↗</span></a><a href="https://www.airbnb.com/s/Uluwatu--Bali/homes" target="_blank" rel="noopener">Airbnb <span class="ar">↗</span></a></div>
+      </div>
+    </div>
+    <div class="via"><div class="t">▼ 30 min</div><div class="v"><h4>Flughafen DPS</h4><p>Abflug 05.09. Von der Bukit kurz und stressfrei.</p></div></div>
+  </div>
+
+  <!-- ROUTE 2 DE -->
+  <div class="routebox r2">
+    <a class="maplink" href="https://www.google.com/maps/dir/Canggu,+Bali/Ubud,+Bali/Tegallalang/Sanur,+Bali/Nusa+Penida/Uluwatu/Ngurah+Rai+Airport" target="_blank" rel="noopener">🗺 Route 2 in Google Maps öffnen</a>
+    <div class="hop">▼ ~1 h · Ankunft Ubud</div>
+    <div class="card"><div class="photo"><img src="https://upload.wikimedia.org/wikipedia/commons/8/8b/1_Tegalalang_rice_terrace_ubud_bali.jpg" alt="Tegallalang Reisterrasse" onerror="this.style.display='none'"><span class="cap">Tegallalang · Wikimedia Commons</span></div>
+      <div class="cbody"><div class="toprow"><h3>Ubud</h3><span class="when">31.08–02.09 · 2 Nächte</span><span class="pill sun">Zentrum</span></div>
+        <p class="lead">Kulturelles Herz. Alles hier ist 15–30 min entfernt.</p>
+        <ul class="clean"><li>Tegallalang Reisfelder (20 min nördlich).</li><li>Jungle Rafting auf dem Ayung (halber Tag).</li><li>Tempel: Tirta Empul, Goa Gajah, Monkey Forest.</li></ul>
+        <div class="tip"><b>Früh hin</b> Tegallalang und der Monkey Forest sind am späten Vormittag extrem voll. Ankunft 7–8 Uhr für Platz und Licht.</div>
+        <div class="booklinks"><a href="https://www.booking.com/searchresults.html?ss=Ubud+Bali" target="_blank" rel="noopener">Booking <span class="ar">↗</span></a><a href="https://www.airbnb.com/s/Ubud--Bali/homes" target="_blank" rel="noopener">Airbnb <span class="ar">↗</span></a></div>
+      </div>
+    </div>
+    <div class="via"><div class="t">▼ ~45 min</div><div class="v"><h4>Fahrt nach Sanur</h4><p>Ablegepunkt für das Schnellboot nach Nusa Penida.</p></div></div>
+    <div class="hop">▼ ~30–45 min Boot · Nusa Penida</div>
+    <div class="card"><div class="photo"><img src="https://upload.wikimedia.org/wikipedia/commons/b/bf/Kelingking_Beach,_Nusa_Penida.jpg" alt="Kelingking Beach, Nusa Penida" onerror="this.style.display='none'"><span class="cap">Nusa Penida · Wikimedia Commons</span></div>
+      <div class="cbody"><div class="toprow"><h3>Nusa Penida</h3><span class="when">Tagesausflug</span><span class="pill turq">Mantas</span></div>
+        <p class="lead">Der Manta-Tag, dazu die Klippen-Ikonen der Insel.</p>
+        <ul class="clean"><li>Manta-Schnorcheln: residente Mantas, ~90–95 %, August/September gutes Fenster.</li><li>Kelingking (T-Rex-Klippe), Broken Beach, Angel's Billabong.</li><li>Offenes Wasser, teils rau und kühler, Rashguard mitnehmen.</li></ul>
+        <div class="tip"><b>Planen</b> Langer Tag mit frühem Start. Sichtung wahrscheinlich, aber nie 100 %. Auch als Übernachtung möglich.</div>
+        <div class="booklinks"><a href="https://www.booking.com/searchresults.html?ss=Sanur+Bali" target="_blank" rel="noopener">Nähe Sanur <span class="ar">↗</span></a></div>
+      </div>
+    </div>
+    <div class="via"><div class="t">▼ ~1,5 h</div><div class="v"><h4>Auf die Bukit-Halbinsel</h4><p>Boot zurück nach Sanur, dann in den Süden nach Uluwatu.</p></div></div>
+    <div class="card"><div class="photo"><img src="https://upload.wikimedia.org/wikipedia/commons/8/88/Uluwatu_Temple_Cliff,_Bali.jpg" alt="Uluwatu Tempel Klippe" onerror="this.style.display='none'"><span class="cap">Uluwatu · Wikimedia Commons</span></div>
+      <div class="cbody"><div class="toprow"><h3>Uluwatu · Bukit</h3><span class="when">02.–05.09 · ein paar Nächte</span><span class="pill coral">Klippen · Szene</span></div>
+        <p class="lead">Klippentempel, Surfspots, Beach Clubs, weiße Strände. Lebendig, flughafennah.</p>
+        <ul class="clean"><li>Uluwatu-Tempel, Kecak-Tanz um 18 Uhr zum Sonnenuntergang.</li><li>Strände: Melasti, Padang Padang, Bingin.</li></ul>
+        <div class="tip"><b>Früh hin</b> Uluwatu-Tempel und die Top-Strände füllen sich im August schon am späten Vormittag.</div>
+        <div class="booklinks"><a href="https://www.booking.com/searchresults.html?ss=Uluwatu+Bali" target="_blank" rel="noopener">Booking <span class="ar">↗</span></a><a href="https://www.airbnb.com/s/Uluwatu--Bali/homes" target="_blank" rel="noopener">Airbnb <span class="ar">↗</span></a></div>
+      </div>
+    </div>
+    <div class="via"><div class="t">▼ 30 min</div><div class="v"><h4>Flughafen DPS</h4><p>Abflug 05.09.</p></div></div>
+  </div>
 </div></section>
 
-<section id="en-transport" class="bgT"><div class="wrap">
-  <div class="sec-head"><span class="no">02</span><h2>Getting around</h2></div>
-  <p class="intro">You are never the driver, someone drives you. Three building blocks: a car with driver for the long legs, Gojek and Grab for short hops in the south, a local driver for the rural bases.</p>
-  <div class="tstack">
-    <div class="tcard"><div class="role">Long legs</div><h4>Car with driver</h4><p>Standard in Bali. Car plus local driver for the whole day, via your hotel or a provider. He waits, spontaneous stops included.</p><p class="note">Nobody navigates, everyone looks out the window.</p></div>
-    <div class="tcard alt"><div class="role">Short hops, south</div><h4>Gojek &amp; Grab</h4><p>Ride-hailing apps. GoRide and GrabBike carry you on a scooter, GoCar and GrabCar by car. You are the passenger, no licence needed. Works well in Canggu, the Bukit and Denpasar.</p><p class="note">In traffic the scooter option beats the car.</p></div>
-    <div class="tcard rural"><div class="role">Munduk &amp; Sidemen</div><h4>Local driver</h4><p>Gojek and Grab are unreliable here. Your accommodation arranges a driver, so pick a place that can.</p></div>
-    <div class="tcard"><div class="role">If someone self-drives</div><h4>Scooter hire</h4><p>You need an international driving permit with a motorcycle entry, otherwise a police fine and no insurance cover in a crash. Film the whole scooter before you ride off.</p></div>
-  </div>
-</div></section>
-
-<section id="en-check" class="bgS"><div class="wrap">
-  <div class="sec-head"><span class="no">03</span><h2>Checklist before departure</h2></div>
-  <p class="intro">This list lives only in your browser. Nothing is shared and nobody can overwrite anyone, but friends will not see your ticks either.</p>
-  <div class="chk-group"><h4>Book &amp; organise</h4>
-    <div class="chk"><input type="checkbox" id="e1"><label for="e1">Flights confirmed (out 21 Aug, back 5 Sep)</label></div>
-    <div class="chk"><input type="checkbox" id="e2"><label for="e2">Pre-camp stay in Canggu 22–24 Aug<span class="sub">Saturday arrival, own transfer</span></label></div>
-    <div class="chk"><input type="checkbox" id="e3"><label for="e3">Camp 24–31 Aug confirmed</label></div>
-    <div class="chk"><input type="checkbox" id="e4"><label for="e4">Stay in Munduk 31 Aug–2 Sep</label></div>
-    <div class="chk"><input type="checkbox" id="e5"><label for="e5">Stay in Sidemen 2–4 Sep<span class="sub">Agung view, driver option</span></label></div>
-    <div class="chk"><input type="checkbox" id="e6"><label for="e6">Stay in Bukit/Uluwatu 4–5 Sep</label></div>
-    <div class="chk"><input type="checkbox" id="e7"><label for="e7">Ask about a driver for the 3 long legs</label></div>
-  </div>
-  <div class="chk-group"><h4>Documents &amp; fees</h4>
-    <div class="chk"><input type="checkbox" id="e8"><label for="e8">Passport valid 6+ months, 2 blank pages</label></div>
-    <div class="chk"><input type="checkbox" id="e9"><label for="e9">e-VOA online, 48 h before<span class="sub">evisa.imigrasi.go.id · 500,000 IDR (~£25)</span></label></div>
-    <div class="chk"><input type="checkbox" id="e10"><label for="e10">Pay the Bali levy<span class="sub">Love Bali · 150,000 IDR (~£7) · save QR</span></label></div>
-    <div class="chk"><input type="checkbox" id="e11"><label for="e11">All Indonesia app, arrival card</label></div>
-    <div class="chk"><input type="checkbox" id="e12"><label for="e12">Check FCDO travel advice<span class="sub">gov.uk/foreign-travel-advice/indonesia</span></label></div>
-    <div class="chk"><input type="checkbox" id="e13"><label for="e13">Travel insurance that covers surfing</label></div>
-  </div>
-  <div class="chk-group"><h4>Health, money &amp; tech</h4>
-    <div class="chk"><input type="checkbox" id="e14"><label for="e14">GP: vaccinations and travel health</label></div>
-    <div class="chk"><input type="checkbox" id="e15"><label for="e15">Insect repellent, reef-safe SPF 30+</label></div>
-    <div class="chk"><input type="checkbox" id="e16"><label for="e16">Sort eSIM or SIM<span class="sub">check the IMEI rule</span></label></div>
-    <div class="chk"><input type="checkbox" id="e17"><label for="e17">Cash plan and a card for withdrawals</label></div>
-    <div class="chk"><input type="checkbox" id="e18"><label for="e18">Travel adapter (UK type G plugs do not fit)</label></div>
-  </div>
-  <div class="chk-group"><h4>Just before you fly</h4>
-    <div class="chk"><input type="checkbox" id="e19"><label for="e19">Check Agung volcano status<span class="sub">volcano.si.edu</span></label></div>
-    <div class="chk"><input type="checkbox" id="e20"><label for="e20">Pack: a warm layer for cool Munduk evenings, sturdy shoes, power bank</label></div>
-  </div>
-</div></section>
-
-<section id="en-budget"><div class="wrap">
-  <div class="sec-head"><span class="no">04</span><h2>Rough budget</h2></div>
-  <p class="intro">Per person, 2026, for orientation only. Not fixed prices, GBP figures approximate.</p>
-  <table class="budget">
-    <tr><td>e-VOA visa</td><td>500,000 IDR · ~£25</td></tr>
-    <tr><td>Bali tourist levy</td><td>150,000 IDR · ~£7</td></tr>
-    <tr><td>Driver per long leg (split)</td><td>500,000–800,000 IDR / day</td></tr>
-    <tr><td>Mid-range stay</td><td>~300,000–700,000 IDR / night</td></tr>
-    <tr><td>Warung meal</td><td>~30,000–60,000 IDR</td></tr>
-    <tr><td>Waterfall / beach entry</td><td>~10,000–30,000 IDR</td></tr>
-    <tr><td>Gojek / Grab short hop</td><td>~15,000–50,000 IDR</td></tr>
-  </table>
-</div></section>
-
-<section id="en-safety" class="bg2"><div class="wrap">
-  <div class="sec-head"><span class="no">05</span><h2>Safety &amp; law</h2></div>
-  <details class="acc"><summary>New criminal code, since Jan 2026 <span class="plus">+</span></summary><div class="abody"><ul class="clean">
-    <li>Sex outside marriage and unmarried couples living together are offences. Only a spouse, parent or child can report it.</li>
-    <li>More relevant: insulting Indonesian politics or religion online can lead to deportation.</li>
+<section><div class="wrap">
+  <div class="sec-head"><span class="no">03</span><h2>Gut zu wissen (beide Routen)</h2></div>
+  <details class="acc"><summary>Fortbewegung <span class="plus">+</span></summary><div class="abody"><ul class="clean">
+    <li>Roller und lokale Fahrer gibt es überall, Transport ist nie das Problem.</li>
+    <li>Süden und Ubud-Ort: Gojek und Grab (Roller oder Auto) für kurze Wege, kein Führerschein nötig.</li>
+    <li>App-schwach: Munduk, Sidemen und manche Ubud-Spots wie Tegallalang verbieten App-Abholung. Lokaler Fahrer (über die Unterkunft) oder Roller mieten.</li>
+    <li>Lange Etappen und Tagesausflüge: Auto mit Fahrer für den Tag ist am einfachsten.</li>
   </ul></div></details>
-  <details class="acc"><summary>Volcanoes <span class="plus">+</span></summary><div class="abody"><ul class="clean">
-    <li>Agung and Batur are active. Agung is at Level 1 (Normal, of 4) per PVMBG.</li>
-    <li>Viewing it from Sidemen is fine. Climb only with a registered guide.</li>
-    <li>Check the status just before you fly.</li>
+  <details class="acc"><summary>Visum &amp; Gebühren (UK &amp; DE) <span class="plus">+</span></summary><div class="abody"><ul class="clean">
+    <li>e-VOA 500.000 IDR (~30 € / ~£25), 30 Tage, einmal verlängerbar. evisa.imigrasi.go.id, 48 h vorher.</li>
+    <li>Pass 6 Monate gültig, 2 freie Seiten, Rückflugticket.</li>
+    <li>Bali-Tourismusabgabe 150.000 IDR (~10 €) über "Love Bali".</li>
+    <li>UK-Reisende brauchen einen Adapter (Type-G-Stecker passen nicht), du als Deutscher nicht.</li>
   </ul></div></details>
-  <details class="acc"><summary>Drugs &amp; alcohol <span class="plus">+</span></summary><div class="abody"><ul class="clean warn">
-    <li>Very harsh drug laws. Stay away from all of it.</li>
-    <li>Be careful with cheap local spirits, methanol poisoning happens. Stick to sealed brand bottles.</li>
+  <details class="acc"><summary>Wann früh hin <span class="plus">+</span></summary><div class="abody"><ul class="clean">
+    <li>August ist Hochsaison, der vollste Monat, sehr hoher Andrang im Süden und in Ubud.</li>
+    <li>Tegallalang, Uluwatu-Tempel und Monkey Forest werden am späten Vormittag extrem voll. Ankunft 7–8 Uhr.</li>
+    <li>Von Natur aus ruhig: Munduk, Sidemen und der Norden bleiben auch in der Hochsaison entspannt.</li>
   </ul></div></details>
-  <details class="acc"><summary>Common scams <span class="plus">+</span></summary><div class="abody"><ul class="clean warn">
-    <li>Change money only at official counters, count the notes yourself.</li>
-    <li>Withdraw cash only from ATMs inside bank branches (skimming).</li>
-    <li>Film the scooter before riding. Never leave your passport as deposit.</li>
-    <li>Taxis: Grab, Gojek, Bluebird. Tourist police: +62 361 224111.</li>
+  <details class="acc"><summary>Sicherheit &amp; Recht <span class="plus">+</span></summary><div class="abody"><ul class="clean warn">
+    <li>Seit Januar 2026: abfällige Online-Äußerungen über Politik/Religion können zur Abschiebung führen.</li>
+    <li>Sehr harte Drogengesetze. Vorsicht bei billigem Schnaps (Methanol).</li>
+    <li>Agung auf Stufe 1 (Normal). Status vor Abflug prüfen.</li>
+    <li>Geld an offiziellen Stellen, ATMs in Bankfilialen. Tourist-Police +62 361 224111.</li>
   </ul></div></details>
-</div></section>
-
-<section id="en-prac"><div class="wrap">
-  <div class="sec-head"><span class="no">06</span><h2>Practical &amp; entry</h2></div>
   <details class="acc"><summary>Lapoint Camp Canggu <span class="plus">+</span></summary><div class="abody"><ul class="clean">
-    <li>Address: Jalan Tanah Barak 49, Canggu, Badung, Bali 80361. Contact: canggu@lapointcamps.com, +62 812 46 757 225.</li>
-    <li>Check-in Mondays from 15:00, check-out Mondays 10:00. 24 &amp; 31 Aug are both Mondays.</li>
-    <li>Airport transfer Mondays only, book in advance. Since arrival is Saturday, sort Sat and Sun yourselves.</li>
-    <li>Bring: passport, insurance covering surfing, swimwear, reusable bottle, SPF 30+, repellent, beach towel.</li>
-    <li>Cash is king. Camp extras paid in cash to the manager on departure.</li>
-    <li>Bali is considered malaria-free; dengue exists, use repellent daily.</li>
-  </ul></div></details>
-  <details class="acc"><summary>Visa &amp; fees <span class="check">check before you fly</span><span class="plus">+</span></summary><div class="abody"><ul class="clean">
-    <li>UK citizens: e-VOA 500,000 IDR (about £25), 30 days, extendable once. For two weeks no extension needed.</li>
-    <li>Apply online at evisa.imigrasi.go.id, 48 h before. Passport valid 6+ months, 2 blank pages, onward ticket.</li>
-    <li>Bali tourist levy 150,000 IDR (about £7) via the Love Bali portal, keep the QR.</li>
-    <li>All Indonesia app for the arrival card.</li>
-  </ul></div></details>
-  <details class="acc"><summary>On the ground <span class="plus">+</span></summary><div class="abody"><ul class="clean">
-    <li>Power: 230 V, type C and F sockets. UK type G plugs do not fit, bring a travel adapter.</li>
-    <li>SIM: local SIM needs IMEI registration, or use an eSIM bought before you go.</li>
-    <li>Do not drink the tap water.</li>
-    <li>Aug/Sep is dry season, clear volcano views. Munduk and Sidemen are cooler in the evening.</li>
-    <li>Emergencies: 112 general, 110 police, 118/119 ambulance. Consular help: the British Embassy is in Jakarta.</li>
+    <li>Jalan Tanah Barak 49, Canggu. canggu@lapointcamps.com, +62 812 46 757 225.</li>
+    <li>Check-in montags 15:00, Check-out montags 10:00. Transfer nur montags, vorab buchen. Samstag-Anreise = eigener Transfer.</li>
+    <li>Mitbringen: Versicherung mit Surf-Deckung, SPF 30+, Mückenschutz. Cash für Camp-Extras.</li>
   </ul></div></details>
 </div></section>
-</main>
 
 <footer><div class="wrap">
-  <div><b>Images:</b> Wikimedia Commons (Ulun Danu Bratan, Munduk, Sidemen, Pantai Melasti), CC BY-SA. Canggu slot for your own photo.</div>
-  <div><b>As of:</b> June 2026. Re-check before departure: visa, levy, All Indonesia, IMEI rule, volcano status.</div>
-  <div><b>Sources:</b> FCDO / GOV.UK, US State Dept, Smithsonian GVP / PVMBG, Lapoint Camps.</div>
+  <div><b>Bilder:</b> Wikimedia Commons (Ulun Danu Bratan, Munduk, Sidemen, Pantai Melasti, Tegallalang, Kelingking/Nusa Penida, Uluwatu), CC BY-SA.</div>
+  <div><b>Stand Juni 2026.</b> Vor Abflug prüfen: Visum, Abgabe, All Indonesia, IMEI, Vulkanstatus. Quellen: Auswärtiges Amt, FCDO, US State Dept, Smithsonian GVP/PVMBG, Lapoint.</div>
 </div></footer>
 </div>
 
 <script>
   function setLang(l){
-    var de=document.getElementById('de'), en=document.getElementById('en');
-    var bde=document.getElementById('btn-de'), ben=document.getElementById('btn-en');
-    if(l==='en'){en.hidden=false;de.hidden=true;ben.classList.add('active');bde.classList.remove('active');document.documentElement.lang='en';}
-    else{de.hidden=false;en.hidden=true;bde.classList.add('active');ben.classList.remove('active');document.documentElement.lang='de';}
+    var en=document.getElementById('en'),de=document.getElementById('de');
+    var ben=document.getElementById('btn-en'),bde=document.getElementById('btn-de');
+    if(l==='de'){de.hidden=false;en.hidden=true;bde.classList.add('active');ben.classList.remove('active');document.documentElement.lang='de';}
+    else{en.hidden=false;de.hidden=true;ben.classList.add('active');bde.classList.remove('active');document.documentElement.lang='en';}
     window.scrollTo(0,0);
+  }
+  function setRoute(r){
+    var b=document.querySelectorAll('.routebox');for(var i=0;i<b.length;i++)b[i].classList.remove('show');
+    var s=document.querySelectorAll('.routebox.'+r);for(var j=0;j<s.length;j++)s[j].classList.add('show');
+    var t=document.querySelectorAll('.rbtn');for(var k=0;k<t.length;k++)t[k].classList.remove('active');
+    var a=document.querySelectorAll('.rbtn.'+r);for(var m=0;m<a.length;m++)a[m].classList.add('active');
   }
 </script>
 </body>
 </html>
+
 
