@@ -14,9 +14,9 @@
     --line:rgba(22,36,28,0.12);--line-strong:rgba(22,36,28,0.22);--card:#FFFFFF;
   }
   *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
+  html{scroll-behavior:smooth;overflow-y:scroll;overflow-x:hidden}
   @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-  body{background:var(--paper);color:var(--ink);font-family:'Inter',system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body{background:var(--paper);color:var(--ink);font-family:'Inter',system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;overflow-wrap:break-word}
   a{color:inherit}
   ::selection{background:var(--sun);color:var(--ink)}
   .wrap{max-width:940px;margin:0 auto;padding:0 22px}
@@ -87,7 +87,7 @@
   ul.clean{list-style:none}
   ul.clean li{position:relative;padding-left:18px;margin-bottom:5px}
   ul.clean li::before{content:"";position:absolute;left:0;top:11px;width:6px;height:6px;border-radius:50%;background:var(--turq)}
-  .leg{display:flex;align-items:center;gap:10px;margin-top:16px;padding:11px 13px;background:var(--tint-turq);border-radius:12px}
+  .leg{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:16px;padding:11px 13px;background:var(--tint-turq);border-radius:12px}
   .leg .arrow{color:var(--coral);font-weight:700}
   .leg .time{font-family:'Space Mono',monospace;color:var(--ink);margin-left:auto;font-size:13px;white-space:nowrap}
   .booklinks{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
@@ -582,3 +582,4 @@
 </script>
 </body>
 </html>
+
