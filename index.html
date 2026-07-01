@@ -7,10 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#16241C">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="Bali26">
 <style>
   :root{--paper:#FBFCF7;--paper2:#EEF6EA;--tint-turq:#E3F5F4;--tint-sun:#FBF1D6;--ink:#16241C;--ink-soft:#566457;--jungle:#1E7A4D;--turq:#0DA7A7;--sun:#EBA90B;--coral:#FF6A4D;--line:rgba(22,36,28,0.12);--line-strong:rgba(22,36,28,0.22);--card:#FFFFFF}
   *{box-sizing:border-box;margin:0;padding:0}
@@ -322,6 +319,12 @@
       <li>Check the Agung volcano status on magma.esdm.go.id before you fly (last public reading: Level 1, normal; ignore unverified eruption rumours).</li>
     </ul>
   </div></details>
+  <details class="acc"><summary>Book early or miss out <span class="plus">+</span></summary><div class="abody"><ul class="clean">
+    <li>Stays: August is peak, so book every base early on free cancellation and good places stay held.</li>
+    <li>Route 2 only: the Nusa Penida fast boat and any manta tour sell out days ahead. Book 2–3 days early, take a morning slot. The last boat back is around 16:00–17:00, miss it and you overnight on the island.</li>
+    <li>A private driver for the long transfer days: arrange a couple of days ahead in peak season, not the same morning.</li>
+    <li>Sunrise treks (Batur or Agung) and cooking classes: book a day or two ahead from your stay.</li>
+  </ul></div></details>
   <details class="acc"><summary>Rules 2026 (must-do) <span class="plus">+</span></summary><div class="abody"><ul class="clean warn">
     <li>Tourist levy 150,000 IDR/person, once per entry, only via lovebali.baliprov.go.id. 2026 has a dedicated checkpoint lane at the airport and QR checks at temples like Uluwatu and Besakih. Save the QR as an offline screenshot.</li>
     <li>e-VOA 500,000 IDR, 30 days, extendable once. Plus the All Indonesia app for the e-customs declaration and arrival card, link the levy QR there before landing.</li>
@@ -553,6 +556,12 @@
       <li>Agung-Status vor Abflug auf magma.esdm.go.id prüfen (letzter offizieller Stand: Level 1, normal; unbestätigte Eruptionsgerüchte ignorieren).</li>
     </ul>
   </div></details>
+  <details class="acc"><summary>Zeitkritisch buchen (sonst weg) <span class="plus">+</span></summary><div class="abody"><ul class="clean">
+    <li>Unterkünfte: August ist Hochsaison, jede Basis früh mit Gratis-Storno buchen, dann sind gute Plätze geblockt.</li>
+    <li>Nur Route 2: das Nusa-Penida-Schnellboot und jede Manta-Tour sind Tage vorher ausgebucht. 2–3 Tage vorher buchen, Vormittags-Slot nehmen. Die letzte Rückfähre geht gegen 16:00–17:00, verpasst ihr sie, bleibt ihr über Nacht auf der Insel.</li>
+    <li>Privater Fahrer für die langen Etappentage: in der Hochsaison ein paar Tage vorher organisieren, nicht am selben Morgen.</li>
+    <li>Sonnenaufgangs-Treks (Batur oder Agung) und Kochkurse: einen bis zwei Tage vorher von der Unterkunft aus buchen.</li>
+  </ul></div></details>
   <details class="acc"><summary>Vorschriften 2026 (Pflicht) <span class="plus">+</span></summary><div class="abody"><ul class="clean warn">
     <li>Tourismusabgabe 150.000 IDR/Person, einmal pro Einreise, nur über lovebali.baliprov.go.id. 2026 gibt es am Flughafen eine eigene Kontrollspur und QR-Prüfungen an Tempeln wie Uluwatu und Besakih. QR als Offline-Screenshot speichern.</li>
     <li>e-VOA 500.000 IDR, 30 Tage, einmal verlängerbar. Dazu die All-Indonesia-App für die e-Zollerklärung und Ankunftskarte, den Levy-QR dort vor der Landung verknüpfen.</li>
@@ -642,7 +651,7 @@
     if(b){ if(window.scrollY>500){b.classList.add('show');}else{b.classList.remove('show');} }
   });
   if('serviceWorker' in navigator){
-    window.addEventListener('load',function(){ navigator.serviceWorker.register('sw.js').catch(function(){}); });
+    navigator.serviceWorker.getRegistrations().then(function(rs){rs.forEach(function(r){r.unregister();});});
   }
 </script>
 </body>
